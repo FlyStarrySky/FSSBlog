@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人博客</title>
+    <style>
+        /* 清除默认样式 */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /* 背景样式 */
+        body{
+            background-color: rgba(128, 127, 241, 0.627);
+        }
+        /* 创建动画 */
+        @keyframes Loading-anim{
+            0%{background-position: 0, 0;}
+            10%{background-position: -1086px, 0;}
+            20%{background-position: -362px, 0;}
+            30%{background-position: -1267px, 0;}
+            40%{background-position: -905px, 0;}
+            50%{background-position: -181px,0;}
+            60%{background-position: -724px, 0;}
+            70%{background-position: -543px, 0;}
+            80%{background-position: -1629px, 0;}
+            90%{background-position: -1448px, 0;}
+            100%{background-position: 0, 0;}
+        }
+        /* 加载动画样式 */
+        /* 居中 */
+        .Loading{
+            width: 180px;
+            height: 252px;
+            /* background-image: url(../images/animation.png); */
+            margin: 0 auto;
+            margin-top: calc(50vh - 126px);
+            /* animation: Loading-anim 1.2s steps(1,start) infinite; */
+        }
+        /* 加载字体样式 */
+        .Loading-UI{
+            text-align: center;
+            font-size: 20px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="Loading"></div>
+    <p class="Loading-UI">Loading......</p>
+
+    <script>
+        //背景图片位置数组
+        let bacimgposition = [  '0, 0',
+                                '-1086px, 0',
+                                '-362px, 0',
+                                '-1267px, 0',
+                                '-905px, 0',
+                                '-181px, 0',
+                                '-724px, 0',
+                                '-543px, 0',
+                                '-1629px, 0',
+                                '-1448px, 0',
+                                '0, 0'
+                             ]
+
+        //获取图片元素
+        let showImg = document.querySelector('.Loading')
+        
+        //设置背景图片
+        showImg.style.backgroundImage = 'url(../images/animation.png)'
+
+        let i = 0;
+        //图片轮播定时器
+        let timer = setInterval( function(){
+            i++
+            if(i >= bacimgposition.length){
+                i=0
+            }
+            showImg.style.backgroundPosition = bacimgposition[i] 
+        }, 100);
+
+        //加载完成跳转主页
+        function jump(){
+            location.href = 'file:///D:/%E6%A1%8C%E9%9D%A2/HTML/JavaScript/1.html'
+        }
+        setTimeout(jump,3000)
+        //location.href = 'file:///D:/%E6%A1%8C%E9%9D%A2/HTML/JavaScript/1.html'
+
+    </script>
+
+</body>
+</html>
