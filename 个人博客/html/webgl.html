@@ -72,28 +72,30 @@
         let loader = PIXI.loader.add('aili','../images/aili.json')
                
         loader.load((loader,res)=>{
-        let aili = new PIXI.spine.Spine(res.aili.spineData),
+          let aili = new PIXI.spine.Spine(res.aili.spineData),
           options = [''];
           aili.state.setAnimation(0,'idel',true);//loop你的动画名字 true 为循环播放
           aili.x = 100;
           aili.y = 400;
           app.stage.addChild(aili);
-        });
+            
+          // create new empty skin  创建新的空皮肤
+          const newSkin = new PIXI.spine.core.Skin("combined-skin");
+            
+          // add base skin  加入基础皮肤
+          combined-skin.addSkin(aili.spineData.findSkin("Base—戴头盔"));
+            
+          // add parital skins over base     加入其余皮肤
+          combined-skin.addSkin(aili.spineData.findSkin("皮肤/工作服"));
+          combined-skin.addSkin(aili.spineData.findSkin("头饰/发饰1"));
+
+          //设置皮肤
+          aili.skeleton.setSkin(combined-skin); 
         
-        // create new empty skin  创建新的空皮肤
-        const newSkin = new PIXI.spine.core.Skin("combined-skin");
-        // add base skin  加入基础皮肤
-        newSkin.addSkin(aili.spineData.findSkin("Base—戴头盔"));
-        // add parital skins over base     加入其余皮肤
-        newSkin.addSkin(aili.spineData.findSkin("皮肤/工作服"));
-        newSkin.addSkin(aili.spineData.findSkin("头饰/发饰1"));
-        
-        aili.skeleton.setSkin(newSkin); 
-        
-        //Reset slots to remove not used attachments  
-        aili.skeleton.setSlotsToSetupPose(); 
+          //Reset slots to remove not used attachments  
+          aili.skeleton.setSlotsToSetupPose();
+        }); 
         
       </script>
-
 </body>
 </html>
