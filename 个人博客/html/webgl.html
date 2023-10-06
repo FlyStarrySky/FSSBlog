@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div id = "app"></div>
+    <div id = "app" style = "position: absolute; left: 300px; top: 200px"></div>
 
 
     <script src="../Js/pixi.sj"></script>
@@ -58,7 +58,7 @@
 
         //Create a Pixi Application 创建一个应用  对象
         var app = new PIXI.Application({
-          backgroundColor:0x0134a1,   //背景色
+          backgroundColor:0xFFFFFF,   //背景色
           antialias:true,             //抗锯齿
           width:800,
           height:600
@@ -76,7 +76,7 @@
           options = [''];
           aili.state.setAnimation(0,'idel',true);//loop你的动画名字 true 为循环播放
           aili.x = 100;
-          aili.y = 100;
+          aili.y = 400;
           app.stage.addChild(aili);
         });
       </script>
