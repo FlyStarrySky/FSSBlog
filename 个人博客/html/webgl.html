@@ -61,7 +61,7 @@
           backgroundColor:0xFFFFFF,   //背景色
           antialias:true,             //抗锯齿
           width:250,
-          height:300
+          height:350
         });
 
         //将对象显示到窗口
@@ -79,6 +79,20 @@
           aili.y = 400;
           app.stage.addChild(aili);
         });
+        
+        // create new empty skin  创建新的空皮肤
+        const newSkin = <any> new PIXI.spine.core.Skin("combined-skin");
+        // add base skin  加入基础皮肤
+        newSkin.addSkin(aili.spineData.findSkin("Base—戴头盔"));
+        // add parital skins over base     加入其余皮肤
+        newSkin.addSkin(aili.spineData.findSkin("皮肤/工作服"));
+        newSkin.addSkin(aili.spineData.findSkin("头饰/发饰1"));
+        
+        aili.skeleton.setSkin(newSkin); 
+        
+        //Reset slots to remove not used attachments  
+        aili.skeleton.setSlotsToSetupPose(); 
+        
       </script>
 
 </body>
