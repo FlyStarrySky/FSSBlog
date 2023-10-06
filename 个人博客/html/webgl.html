@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = "app"></div>
+
+
+    <script src="../Js/pixi.sj"></script>
+    <script src="../Js/pixi-spine.js"></script>
+
+    <script type="text/javascript">
+      let type = "WebGL"
+      if(!PIXI.utils.isWebGLSupported()){
+        type = "canvas"
+      }
+  
+      PIXI.utils.sayHello(type)
+    </script>
+
+    <script>
+        // //Create a Pixi Application 创建一个应用  对象
+        // let app = new PIXI.Application({
+        //     width: 300, 
+        //     height: 300,
+        //     antialias: true,    //抗锯齿
+        //     transparent: false,  //透明
+        //     resoultion: 1,
+        //     backgroundColor: 0x0134a1
+        // });
+
+        // //Add the canvas that Pixi automatically created for you to the HTML document
+        // //将对象显示到窗口
+        // document.body.appendChild(app.view);
+
+        // //载入完成调用函数
+        // PIXI.loader.add("animation.png").load(loadOver)
+
+        // function loadOver (){
+        //     // console.log('ok');
+        //     let Elysia = new PIXI.Sprite(PIXI.loader.resources["animation.png"].texture);
+
+        //     app.stage.addChild(Elysia);
+        //     Elysia.x = 100
+        //     Elysia.y = 20
+
+        //     //添加事件
+        //     window.addEventListener("click", function(){
+        //         app.stage.removeChild(Elysia);
+        //     })
+
+        // }
+
+        // PIXI.loader在V5.x版本已经废弃
+
+        //Create a Pixi Application 创建一个应用  对象
+        var app = new PIXI.Application({
+          backgroundColor:0x0134a1,   //背景色
+          antialias:true,             //抗锯齿
+          width:800,
+          height:600
+        });
+
+        //将对象显示到窗口
+        //document.body.appendChild(app.view);
+        document.getElementById('app').appendChild(app.view);
+
+        //加载Json数据
+        let loader = PIXI.loader.add('aili','../images/aili.json')
+               
+        loader.load((loader,res)=>{
+        let aili = new PIXI.spine.Spine(res.aili.spineData),
+          options = [''];
+          aili.state.setAnimation(0,'idel',true);//loop你的动画名字 true 为循环播放
+          aili.x = 100;
+          aili.y = 100;
+          app.stage.addChild(aili);
+        });
+      </script>
+
+</body>
+</html>
