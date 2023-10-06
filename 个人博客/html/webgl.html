@@ -60,7 +60,7 @@
         var app = new PIXI.Application({
           backgroundColor:0xFFFFFF,   //背景色
           antialias:true,             //抗锯齿
-          width:300,
+          width:400,
           height:500
         });
 
@@ -75,7 +75,7 @@
           let aili = new PIXI.spine.Spine(res.aili.spineData),
           options = [''];
           aili.state.setAnimation(0,'idel',true);//loop你的动画名字 true 为循环播放
-          aili.x = 200;
+          aili.x = 180;
           aili.y = 500;
           app.stage.addChild(aili);
             
