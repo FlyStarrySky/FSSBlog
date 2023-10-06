@@ -81,7 +81,7 @@
         });
         
         // create new empty skin  创建新的空皮肤
-        const newSkin = <any> new PIXI.spine.core.Skin("combined-skin");
+        const newSkin = new PIXI.spine.core.Skin("combined-skin");
         // add base skin  加入基础皮肤
         newSkin.addSkin(aili.spineData.findSkin("Base—戴头盔"));
         // add parital skins over base     加入其余皮肤
