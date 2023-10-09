@@ -75,8 +75,8 @@
           let aili = new PIXI.spine.Spine(res.aili.spineData),
           options = [''];
           aili.state.setAnimation(0,'idel',true);//loop你的动画名字 true 为循环播放
-          aili.x = 180;
-          aili.y = 500;
+          aili.x = 10;
+          aili.y = 10;
           app.stage.addChild(aili);
             
           // create new empty skin  创建新的空皮肤
@@ -86,8 +86,8 @@
           newSkin.addSkin(aili.spineData.findSkin("Base—戴头盔"));
             
           // add parital skins over base     加入其余皮肤
-          newSkin.addSkin(aili.spineData.findSkin("皮肤/学生服"));
-          newSkin.addSkin(aili.spineData.findSkin("头饰/遮阳帽"));
+          newSkin.addSkin(aili.spineData.findSkin("皮肤/女仆服"));
+          newSkin.addSkin(aili.spineData.findSkin("头饰/发饰1"));
 
           //设置皮肤
           aili.skeleton.setSkin(newSkin); 
