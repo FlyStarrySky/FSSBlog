@@ -4,9 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 </head>
 <body>
-    <div id = "app" style = "position: absolute; left: 300px; top: 300px"></div>
+    <div id = "app" style = "position: absolute; left: 1000px; top: 100px"></div>
 
 
     <script src="../Js/pixi.sj"></script>
@@ -75,7 +81,7 @@
           let aili = new PIXI.spine.Spine(res.aili.spineData),
           options = [''];
           aili.state.setAnimation(0,'idel',true);//loop你的动画名字 true 为循环播放
-          aili.x = 350;
+          aili.x = 150;
           aili.y = 500;
           app.stage.addChild(aili);
             
