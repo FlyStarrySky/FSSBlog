@@ -32,31 +32,7 @@
       PIXI.utils.sayHello(type)
     </script>
     
-    <script>
-        //Create a Pixi Application 创建一个应用  对象
-        var banner = new PIXI.Application({
-          backgroundColor:0xFFFFFF,   //背景色
-          antialias:true,             //抗锯齿
-          width:3000,
-          height:200
-        });
-
-        //将对象显示到窗口
-        //document.body.appendChild(banner.view);
-        document.getElementById('hander-banner').appendChild(banner.view);
-
-        //加载Json数据
-        let loader = PIXI.loader.add('Serika','../images/Serika_home.json')
-               
-        loader.load((loader,res)=>{
-          let Serika = new PIXI.spine.Spine(res.Serika.spineData),
-          options = [''];
-          Serika.state.setAnimation(0,'Idle_02',true);//loop你的动画名字 true 为循环播放
-          Serika.x = 500;
-          Serika.y = 100;
-          app.stage.addChild(Serika);
-        }); 
-    </script>
+   
     
     <script>
         //Create a Pixi Application 创建一个应用  对象
