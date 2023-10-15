@@ -18,19 +18,16 @@
 <body>
 	<script src="../Js/pixi.sj"></script>
     	<script src="../Js/pixi-spine.js"></script>
-	
-    	<div id ="hander-banner"></div>
-    	<div id = "app" style = "position: absolute; left: 1000px; top: 100px"></div>
-	
-    	<script type="text/javascript">
-     	 let type = "WebGL"
-     	 if(!PIXI.utils.isWebGLSupported()){
+
+    <script type="text/javascript">
+      let type = "WebGL"
+      if(!PIXI.utils.isWebGLSupported()){
         type = "canvas"
       }
   
       PIXI.utils.sayHello(type)
     </script>
-</body>
+	
 	<script>
         //Create a Pixi Application 创建一个应用  对象
         var app = new PIXI.Application({
@@ -91,4 +88,6 @@
           aili.skeleton.setSlotsToSetupPose();
         }); 
       </script>
+	
+</body>
 </html>
