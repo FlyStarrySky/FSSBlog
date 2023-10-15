@@ -9,9 +9,14 @@
             margin: 0;
             padding: 0;
         }
+        .hander-banner{
+            width:100vw;
+            height:200px;
+        }
     </style>
 </head>
 <body>
+    <div class="hander-banner"></div>
     <div id = "app" style = "position: absolute; left: 1000px; top: 100px"></div>
 
 
@@ -26,42 +31,34 @@
   
       PIXI.utils.sayHello(type)
     </script>
-
+    
     <script>
-        // //Create a Pixi Application 创建一个应用  对象
-        // let app = new PIXI.Application({
-        //     width: 300, 
-        //     height: 300,
-        //     antialias: true,    //抗锯齿
-        //     transparent: false,  //透明
-        //     resoultion: 1,
-        //     backgroundColor: 0x0134a1
-        // });
+        //Create a Pixi Application 创建一个应用  对象
+        var banner = new PIXI.Application({
+          backgroundColor:0xFFFFFF,   //背景色
+          antialias:true,             //抗锯齿
+          width:100vw,
+          height:200px
+        });
 
-        // //Add the canvas that Pixi automatically created for you to the HTML document
-        // //将对象显示到窗口
-        // document.body.appendChild(app.view);
+        //将对象显示到窗口
+        //document.body.appendChild(banner.view);
+        document.getElementById('hander-banner').appendChild(banner.view);
 
-        // //载入完成调用函数
-        // PIXI.loader.add("animation.png").load(loadOver)
-
-        // function loadOver (){
-        //     // console.log('ok');
-        //     let Elysia = new PIXI.Sprite(PIXI.loader.resources["animation.png"].texture);
-
-        //     app.stage.addChild(Elysia);
-        //     Elysia.x = 100
-        //     Elysia.y = 20
-
-        //     //添加事件
-        //     window.addEventListener("click", function(){
-        //         app.stage.removeChild(Elysia);
-        //     })
-
-        // }
-
-        // PIXI.loader在V5.x版本已经废弃
-
+        //加载Json数据
+        let loader = PIXI.loader.add('Serika','../images/Serika_home.json')
+               
+        loader.load((loader,res)=>{
+          let Serika = new PIXI.spine.Spine(res.Serika.spineData),
+          options = [''];
+          Serika.state.setAnimation(0,'Idle_02',true);//loop你的动画名字 true 为循环播放
+          Serika.x = 500;
+          Serika.y = 100;
+          app.stage.addChild(Serika);
+        }); 
+    </script>
+    
+    <script>
         //Create a Pixi Application 创建一个应用  对象
         var app = new PIXI.Application({
           backgroundColor:0xFFFFFF,   //背景色
@@ -101,7 +98,6 @@
           //Reset slots to remove not used attachments  
           aili.skeleton.setSlotsToSetupPose();
         }); 
-        
       </script>
 </body>
 </html>
