@@ -43,14 +43,33 @@
           height:500
         });
 
+        var banner = new PIXI.Application({
+	      backgroundColor:0xFFFFFF,   //背景色
+	      antialias:true,             //抗锯齿
+	      width:3000,
+	      height:200
+	    });
+        
         //将对象显示到窗口
         //document.body.appendChild(app.view);
         document.getElementById('app').appendChild(app.view);
+        document.getElementById('hander-banner').appendChild(banner.view);
 
         //加载Json数据
-        let loader = PIXI.loader.add('aili','../images/爱莉.json')
-               
-        loader.load((loader,res)=>{
+        let loader1 = PIXI.loader.add('aili','../images/爱莉.json')
+        let loader2 = PIXI.loader.add('Serika','../images/Serika_home.json')
+
+        loader2.load((loader,res)=>{
+	      let Serika = new PIXI.spine.Spine(res.Serika.spineData),
+	      options = [''];
+	      Serika.state.setAnimation(0,'Idle_02',true);//loop你的动画名字 true 为循环播放
+	      Serika.x = 500;
+	      Serika.y = 100;
+	      app.stage.addChild(Serika);
+	    }); 
+
+        
+        loader1.load((loader,res)=>{
           let aili = new PIXI.spine.Spine(res.aili.spineData),
           options = [''];
           aili.state.setAnimation(0,'idel',true);//loop你的动画名字 true 为循环播放
