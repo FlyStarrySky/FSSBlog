@@ -16,80 +16,87 @@
     </style>
 </head>
 <body>
-	<div id = "hander-banner"></div>
-	<div id = "app"></div>
-	<script src="../Js/pixi.sj"></script>
-    	<script src="../Js/pixi-spine.js"></script>
+    <div id = "hander-banner"></div>
+    <div id = "app"></div>
+    <script src="../Js/pixi.sj"></script>
+    <script src="../Js/pixi-spine.js"></script>
 
     <script type="text/javascript">
-      let type = "WebGL"
-      if(!PIXI.utils.isWebGLSupported()){
-        type = "canvas"
-      }
+        let type = "WebGL"
+        if(!PIXI.utils.isWebGLSupported()){
+            type = "canvas"
+        }
   
-      PIXI.utils.sayHello(type)
+        PIXI.utils.sayHello(type)
     </script>
 	
-	<script>
-        //Create a Pixi Application 创建一个应用  对象
-        var app = new PIXI.Application({
-          backgroundColor:0xFFFFFF,   //背景色
-          antialias:true,             //抗锯齿
-          width:400,
-          height:500
-        });
-
-        var banner = new PIXI.Application({
-	      backgroundColor:0xFFFFFF,   //背景色
-	      antialias:true,             //抗锯齿
-	      width:1800,
-	      height:200
-	    });
+    <script>
+    //窗体变换事件
+	window.addEventListener('resize', function(){
+        //输出当前窗口的宽
+        var windowWidth = document.documentElement.clientWidth || document.body.clientWidth;
+        //console.log(windowWidth);
+    });
+	    
+    //Create a Pixi Application 创建一个应用  对象
+    var app = new PIXI.Application({
+        backgroundColor:0xFFFFFF,   //背景色
+        antialias:true,             //抗锯齿
+        width:400,
+        height:500
+    });
+	    
+    //Create a Pixi Application 创建一个应用  对象
+    var banner = new PIXI.Application({
+	backgroundColor:0xFFFFFF,   //背景色
+	antialias:true,             //抗锯齿
+	width:windowWidth,
+	height:200
+    });
         
-        //将对象显示到窗口
-        //document.body.appendChild(app.view);
-        document.getElementById('app').appendChild(app.view);
-        document.getElementById('hander-banner').appendChild(banner.view);
+    //将对象显示到窗口
+    //document.body.appendChild(app.view);
+    document.getElementById('app').appendChild(app.view);
+    document.getElementById('hander-banner').appendChild(banner.view);
 
-        //加载Json数据
-        let loader1 = PIXI.loader.add('aili','../images/爱莉.json')
-        let loader2 = PIXI.loader.add('Serika','../images/Serika_home.json')
+    //加载Json数据
+    let loader1 = PIXI.loader.add('aili','../images/爱莉.json')
+    let loader2 = PIXI.loader.add('Serika','../images/Serika_home.json')
 
-        loader2.load((loader,res)=>{
-	      let Serika = new PIXI.spine.Spine(res.Serika.spineData),
-	      options = [''];
-	      Serika.state.setAnimation(0,'Idle_02',true);//loop你的动画名字 true 为循环播放
-	      Serika.x = 500;
-	      Serika.y = 1300;
-	      banner.stage.addChild(Serika);
-	    }); 
+    loader2.load((loader,res)=>{
+	let Serika = new PIXI.spine.Spine(res.Serika.spineData),
+	options = [''];
+	Serika.state.setAnimation(0,'Idle_02',true);//loop你的动画名字 true 为循环播放
+	Serika.x = 500;
+	Serika.y = 1300;
+	banner.stage.addChild(Serika);
+    }); 
+ 
+    loader1.load((loader,res)=>{
+        let aili = new PIXI.spine.Spine(res.aili.spineData),
+        options = [''];
+        aili.state.setAnimation(0,'idel',true);//loop你的动画名字 true 为循环播放
+        aili.x = 150;
+        aili.y = 500;
+        app.stage.addChild(aili);
+            
+        // create new empty skin  创建新的空皮肤
+        const newSkin = new PIXI.spine.core.Skin("Myskin");
+            
+        // add base skin  加入基础皮肤
+        newSkin.addSkin(aili.spineData.findSkin("Base—戴头盔"));
+            
+        // add parital skins over base     加入其余皮肤
+        newSkin.addSkin(aili.spineData.findSkin("皮肤/女仆服"));
+        newSkin.addSkin(aili.spineData.findSkin("头饰/发饰1"));
 
+        //设置皮肤
+        aili.skeleton.setSkin(newSkin); 
         
-        loader1.load((loader,res)=>{
-          let aili = new PIXI.spine.Spine(res.aili.spineData),
-          options = [''];
-          aili.state.setAnimation(0,'idel',true);//loop你的动画名字 true 为循环播放
-          aili.x = 150;
-          aili.y = 500;
-          app.stage.addChild(aili);
-            
-          // create new empty skin  创建新的空皮肤
-          const newSkin = new PIXI.spine.core.Skin("Myskin");
-            
-          // add base skin  加入基础皮肤
-          newSkin.addSkin(aili.spineData.findSkin("Base—戴头盔"));
-            
-          // add parital skins over base     加入其余皮肤
-          newSkin.addSkin(aili.spineData.findSkin("皮肤/女仆服"));
-          newSkin.addSkin(aili.spineData.findSkin("头饰/发饰1"));
-
-          //设置皮肤
-          aili.skeleton.setSkin(newSkin); 
-        
-          //Reset slots to remove not used attachments  
-          aili.skeleton.setSlotsToSetupPose();
+        //Reset slots to remove not used attachments  
+        aili.skeleton.setSlotsToSetupPose();
         }); 
-      </script>
+    </script>
 	
 </body>
 </html>
