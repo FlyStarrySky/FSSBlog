@@ -30,14 +30,7 @@
         PIXI.utils.sayHello(type)
     </script>
 	
-    <script>
-    //窗体变换事件
-	window.addEventListener('resize', function(){
-        //输出当前窗口的宽
-        let windowWidth = document.documentElement.clientWidth || document.body.clientWidth;
-        //console.log(windowWidth);
-    });
-	    
+    <script>	    
     //Create a Pixi Application 创建一个应用  对象
     var app = new PIXI.Application({
         backgroundColor:0xFFFFFF,   //背景色
@@ -62,16 +55,7 @@
     //加载Json数据
     let loader1 = PIXI.loader.add('aili','../images/爱莉.json')
     let loader2 = PIXI.loader.add('Serika','../images/Serika_home.json')
-
-    loader2.load((loader,res)=>{
-	let Serika = new PIXI.spine.Spine(res.Serika.spineData),
-	options = [''];
-	Serika.state.setAnimation(0,'Idle_02',true);//loop你的动画名字 true 为循环播放
-	Serika.x = 500;
-	Serika.y = 1300;
-	banner.stage.addChild(Serika);
-    }); 
- 
+	    
     loader1.load((loader,res)=>{
         let aili = new PIXI.spine.Spine(res.aili.spineData),
         options = [''];
@@ -96,6 +80,23 @@
         //Reset slots to remove not used attachments  
         aili.skeleton.setSlotsToSetupPose();
         }); 
+
+    loader2.load((loader,res)=>{
+	let Serika = new PIXI.spine.Spine(res.Serika.spineData),
+	options = [''];
+	Serika.state.setAnimation(0,'Idle_02',true);//loop你的动画名字 true 为循环播放
+	Serika.x = 500;
+	Serika.y = 1300;
+	banner.stage.addChild(Serika);
+    }); 
+	    
+    //窗体变换事件
+    window.addEventListener('resize', function(){
+    	//输出当前窗口的宽
+    	let windowWidth = document.documentElement.clientWidth || document.body.clientWidth;
+    	//console.log(windowWidth);
+	banner.width = windowWidth;
+    });
     </script>
 	
 </body>
