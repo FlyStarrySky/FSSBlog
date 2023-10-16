@@ -14,8 +14,8 @@
             height:200px;
         }
 	#app{
-	    width:400px;
-	    height:500px;
+	    width:250px;
+	    height:250px;
 	    position: absolute;
             right: 0;
             bottom: 0;
@@ -67,8 +67,8 @@
         let aili = new PIXI.spine.Spine(res.aili.spineData),
         options = [''];
         aili.state.setAnimation(0,'idel',true);//loop你的动画名字 true 为循环播放
-        aili.x = 150;
-        aili.y = 500;
+        aili.x = 100;
+        aili.y = 200;
 	aili.scale.x = 0.5;
         aili.scale.y = 0.5;
         app.stage.addChild(aili);
