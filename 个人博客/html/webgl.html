@@ -107,10 +107,10 @@
     //窗体变换事件
     window.addEventListener('resize', function(){
     	//输出当前窗口的宽
-    	let windowWidth = document.documentElement.clientWidth || document.body.clientWidth;
+    	//let windowWidth = document.documentElement.clientWidth || document.body.clientWidth;
     	//console.log(windowWidth);
 	//banner.width = windowWidth;
-	banner.renderer.resize(windowWidth, 200);
+	banner.renderer.resize(window.innerWidth, 200);
     });
     </script>
 	
