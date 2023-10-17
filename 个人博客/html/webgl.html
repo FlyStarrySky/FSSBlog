@@ -10,6 +10,7 @@
             padding: 0;
         }
         #hander-banner{
+	    display:flex;
             height:200px;
         }
 	#app{
@@ -98,10 +99,12 @@
 	banner.stage.addChild(Serika);
     }); 
 
+    let viewWidth = document.getElementById('hander-banner').clientWidth;
+	    
     banner.renderer.view.style.position = "absolute";
     banner.renderer.view.style.display = "block";
     banner.renderer.autoResize = true;
-    banner.renderer.resize(window.innerWidth, 200);
+    banner.renderer.resize(viewWidth, 200);
 	    
     //窗体变换事件
     window.addEventListener('resize', function(){
@@ -109,7 +112,7 @@
     	//let windowWidth = document.documentElement.clientWidth || document.body.clientWidth;
     	//console.log(windowWidth);
 	//banner.width = windowWidth;
-	banner.renderer.resize(window.innerWidth, 200);
+	banner.renderer.resize(viewWidth, 200);
     });
     </script>
 	
