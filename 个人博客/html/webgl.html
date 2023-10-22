@@ -109,10 +109,10 @@
         let text1 = document.querySelector("#hander-banner")
         text1.addEventListener('mousemove',function(e){
             //console.log('123');
-            console.log('眼初始位置x' + relative.x);
-            console.log('眼初始位置y' + relative.y);
-	    console.log('眼当前位置x' + controlEye.x);
-            console.log('眼当前位置y' + controlEye.y);
+            //console.log('眼初始位置x' + relative.x);
+            //console.log('眼初始位置y' + relative.y);
+	    //console.log('眼当前位置x' + controlEye.x);
+            //console.log('眼当前位置y' + controlEye.y);
             //basePos.x = e.clientX
             //basePos.y = e.clientY
             //console.log(basePos.x);
@@ -121,8 +121,8 @@
         })
 
 	    text1.addEventListener('mouseleave',function(e){
-		console.log('离开眼初始位置x' + relative.x);
-                console.log('离开眼初始位置y' + relative.y);
+		//console.log('离开眼初始位置x' + relative.x);
+                //console.log('离开眼初始位置y' + relative.y);
 	        controlEye.y = relative.x
 	        controlEye.x = relative.y
         })
@@ -144,7 +144,7 @@
 	    
     //窗体变换事件
     window.addEventListener('resize', function(){
-	    //console.log('1');
+	    console.log('1');
     	//输出当前窗口的宽
     	//let windowWidth = document.documentElement.clientWidth || document.body.clientWidth;
     	//console.log(windowWidth);
