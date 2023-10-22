@@ -111,6 +111,8 @@
             //console.log('123');
             console.log(relative.x);
             console.log(relative.y);
+	    console.log(controlEye.x);
+            console.log(controlEye.y);
             //basePos.x = e.clientX
             //basePos.y = e.clientY
             //console.log(basePos.x);
@@ -119,6 +121,8 @@
         })
 
 	    text1.addEventListener('mouseover',function(e){
+		console.log(relative.x);
+            	console.log(relative.y);
 	        controlEye.y = relative.x
 	        controlEye.x = relative.y
         })
