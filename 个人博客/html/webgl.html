@@ -11,7 +11,7 @@
         }
         #hander-banner{
 	        /* display:flex; */
-            width: 100vw;
+            width: window.innerWidth;
             height:200px;
         }
 	#app{
@@ -135,7 +135,7 @@
 	    banner.stage.addChild(Serika);
     }); 
 	    
-    let viewWidth = document.getElementById('hander-banner').clientWidth;
+    let viewWidth = window.innerWidth;
 	    
     banner.renderer.view.style.position = "absolute";
     banner.renderer.view.style.display = "block";
