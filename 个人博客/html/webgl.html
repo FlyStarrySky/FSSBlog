@@ -114,6 +114,12 @@
 	   controlEye.y = -e.clientX
 	   controlEye.x = -e.clientY
         })
+
+	text1.addEventListener('mouseover',function(e){
+	   controlEye.y = relative.x
+	   controlEye.x = relative.y
+        })
+	    
 	Serika.state.setAnimation(0,'Idle_02',true);//loop你的动画名字 true 为循环播放
 	Serika.x = 990;
 	Serika.y = 800;
