@@ -105,20 +105,20 @@
         relative.x = controlEye.x
         relative.y = controlEye.y
 	    
-        let text1 = document.querySelector(".eyecontrol")
-        text1.addEventListener('mousemove',function(e){
-            console.log('123');
+        //let text1 = document.querySelector(".eyecontrol")
+        //text1.addEventListener('mousemove',function(e){
+         //   console.log('123');
             //basePos.x = e.clientX
             //basePos.y = e.clientY
-            //console.log(basePos.x);
-	   controlEye.y = -(e.clientX - 1000)
-	   controlEye.x = -(e.clientY - 100)
-        })
+        //    //console.log(basePos.x);
+	//   controlEye.y = -(e.clientX - 1000)
+	//   controlEye.x = -(e.clientY - 100)
+        //})
 
-	text1.addEventListener('mouseover',function(e){
-	   controlEye.y = relative.x
-	   controlEye.x = relative.y
-        })
+	//text1.addEventListener('mouseover',function(e){
+	//   controlEye.y = relative.x
+	//   controlEye.x = relative.y
+        //})
 	    
 	Serika.state.setAnimation(0,'Idle_02',true);//loop你的动画名字 true 为循环播放
 	Serika.x = 990;
