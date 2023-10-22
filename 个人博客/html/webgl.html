@@ -10,8 +10,8 @@
             padding: 0;
         }
         #hander-banner{
-	        /* display:flex; */
-            width: 100vw;
+	    display:flex;
+            //width: 100vw;
             height: 200px;
         }
 	#app{
@@ -52,7 +52,7 @@
     var banner = new PIXI.Application({
 	//backgroundColor:0xFFFFFF,   //背景色
 	antialias:true,             //抗锯齿
-	width:document.documentElement.clientWidth,
+	//width:document.documentElement.clientWidth,
 	height:200
     });
         
@@ -146,7 +146,7 @@
     window.addEventListener('resize', function(){
 	    console.log('1');
     	//输出当前窗口的宽
-    	//let windowWidth = document.documentElement.clientWidth || document.body.clientWidth;
+    	let windowWidth = document.documentElement.clientWidth || document.body.clientWidth;
     	//console.log(windowWidth);
 	    //banner.width = windowWidth;
 	    banner.renderer.resize(viewWidth, 200);
