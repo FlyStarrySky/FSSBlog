@@ -111,8 +111,8 @@
             //basePos.x = e.clientX
             //basePos.y = e.clientY
             //console.log(basePos.x);
-	   //controlEye.x = e.clientX
-	   controlEye.y = e.clientY
+	   controlEye.y = e.clientX
+	   controlEye.x = e.clientY
         })
 	Serika.state.setAnimation(0,'Idle_02',true);//loop你的动画名字 true 为循环播放
 	Serika.x = 990;
@@ -131,6 +131,7 @@
 	    
     //窗体变换事件
     window.addEventListener('resize', function(){
+	console.log('1');
     	//输出当前窗口的宽
     	//let windowWidth = document.documentElement.clientWidth || document.body.clientWidth;
     	//console.log(windowWidth);
