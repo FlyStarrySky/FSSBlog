@@ -107,12 +107,12 @@
 	    
         let text1 = document.querySelector("#hander-banner")
         text1.addEventListener('mousemove',function(e){
-            //console.log('123');
+            console.log('123');
             //basePos.x = e.clientX
             //basePos.y = e.clientY
             //console.log(basePos.x);
-	   relative.x = e.clientX
-	   relative.y = e.clientY
+	   //controlEye.x = e.clientX
+	   controlEye.y = e.clientY
         })
 	Serika.state.setAnimation(0,'Idle_02',true);//loop你的动画名字 true 为循环播放
 	Serika.x = 990;
