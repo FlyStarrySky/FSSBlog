@@ -11,8 +11,8 @@
         }
         #hander-banner{
 	        /* display:flex; */
-            width: window.innerWidth;
-            height:200px;
+            width: 100vw;
+            height: 200px;
         }
 	#app{
 	    width:250px;
@@ -52,7 +52,7 @@
     var banner = new PIXI.Application({
 	//backgroundColor:0xFFFFFF,   //背景色
 	antialias:true,             //抗锯齿
-	//width:document.documentElement.clientWidth,
+	width:document.documentElement.clientWidth,
 	height:200
     });
         
@@ -135,7 +135,7 @@
 	    banner.stage.addChild(Serika);
     }); 
 	    
-    let viewWidth = window.innerWidth;
+    let viewWidth = document.getElementById('hander-banner').clientWidth;
 	    
     banner.renderer.view.style.position = "absolute";
     banner.renderer.view.style.display = "block";
