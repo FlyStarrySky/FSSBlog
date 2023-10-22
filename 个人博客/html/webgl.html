@@ -93,6 +93,7 @@
     
     loader2.load((loader,res)=>{
 	let Serika = new PIXI.spine.Spine(res.Serika.spineData),
+	var skeleton = Serika.skeleton,
 	options = [''];
 	Serika.state.setAnimation(0,'Idle_02',true);//loop你的动画名字 true 为循环播放
 	Serika.x = 990;
@@ -118,7 +119,7 @@
 	banner.renderer.resize(viewWidth, 200);
     });
 
-    let skeleton = Serika.skeleton
+    
     //获取相关骨骼
     let controlEye = skeleton.findBone('Touch_Eye')
     let controlHead = skeleton.findBone('Head')
