@@ -23,7 +23,7 @@
     </style>
 </head>
 <body>
-    <div id = "hander-banner"></div>
+    <div id = "hander-banner" class = "eyecontrol"></div>
     <div id = "app"></div>
     <script src="../Js/pixi.sj"></script>
     <script src="../Js/pixi-spine.js"></script>
@@ -105,14 +105,14 @@
         relative.x = controlEye.x
         relative.y = controlEye.y
 	    
-        let text1 = document.querySelector("#hander-banner")
+        let text1 = document.querySelector(".eyecontrol")
         text1.addEventListener('mousemove',function(e){
             console.log('123');
             //basePos.x = e.clientX
             //basePos.y = e.clientY
             //console.log(basePos.x);
-	   controlEye.y = -(e.clientX + controlHead.x)
-	   controlEye.x = -(e.clientY + controlHead.y)
+	   controlEye.y = -e.clientX
+	   controlEye.x = -e.clientY
         })
 	Serika.state.setAnimation(0,'Idle_02',true);//loop你的动画名字 true 为循环播放
 	Serika.x = 990;
