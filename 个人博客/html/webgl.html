@@ -127,8 +127,8 @@
 	    //controlEye.y = relative.y
 	    let i = 1
 	    let timer = setInterval( function(){
-	    	controlEye.y = (controlEye.y - relative.y)*(i/10)
-                controlEye.x = (controlEye.x - relative.x)*(i/10)
+	    	controlEye.y = controlEye.y - (controlEye.y - relative.y)*(i/10)
+                controlEye.x = controlEye.x - (controlEye.x - relative.x)*(i/10)
 		i++
 		if(i===10){
 			i=1
