@@ -92,7 +92,7 @@
         
         //Reset slots to remove not used attachments  
         aili.skeleton.setSlotsToSetupPose();
-        }); 
+    }); 
     
     loader2.load((loader,res)=>{
 	let Serika = new PIXI.spine.Spine(res.Serika.spineData),
@@ -120,7 +120,8 @@
 			j=1
 			clearInterval(timer2)
 		}
-	}, 40);
+	    }, 40);
+	})
 	//移动	
         text1.addEventListener('mousemove',function(e){
             //console.log('123');
@@ -168,12 +169,12 @@
 	    
     //窗体变换事件
     window.addEventListener('resize', function(){
-	    console.log('1');
+	//console.log('1');
     	//输出当前窗口的宽
     	let windowWidth = document.documentElement.clientWidth || document.body.clientWidth;
     	//console.log(windowWidth);
-	    //banner.width = windowWidth;
-	    banner.renderer.resize(windowWidth, 200);
+	//banner.width = windowWidth;
+	banner.renderer.resize(windowWidth, 200);
     });
     </script>
 	
