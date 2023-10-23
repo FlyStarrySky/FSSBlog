@@ -110,18 +110,18 @@
 	    
         let text1 = document.querySelector("#hander-banner")
 	//过渡    
-	//text1.addEventListener('mouseenter',function(e){
-		//let j = 1
-	        //let timer2 = setInterval( function(){
-	    	//controlEye.y = controlEye.y + (-(e.clientX)/3 - controlEye.y)*(j/10)
-                //controlEye.x = controlEye.x + (-(e.clientY)/3 -controlEye.x)*(j/10)
-		//i++
-		//if(i===10){
-		//	j=1
-		//	clearInterval(timer2)
-		//}
-	    //}, 40);
-	//})
+	text1.addEventListener('mouseenter',function(e){
+		let j = 1
+	        let timer2 = setInterval( function(){
+	    	controlEye.y = controlEye.y + (-(e.clientX)/3 - controlEye.y)*(j/10)
+                controlEye.x = controlEye.x + (-(e.clientY)/3 -controlEye.x)*(j/10)
+		j++
+		if(j===10){
+			j=1
+			clearInterval(timer2)
+		}
+	    }, 40);
+	})
 	//移动	
         text1.addEventListener('mousemove',function(e){
             //console.log('123');
