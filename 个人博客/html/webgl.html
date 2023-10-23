@@ -43,7 +43,7 @@
     var app = new PIXI.Application({
         //backgroundColor:0xFFFFFF,   //背景色
 	transparent:true,           //透明
-        antialias:true,             //抗锯齿
+        antialias:false,             //抗锯齿
         width:250,
         height:250
     });
@@ -52,6 +52,7 @@
     var banner = new PIXI.Application({
 	//backgroundColor:0xFFFFFF,   //背景色
 	antialias:true,             //抗锯齿
+	transparent: true,
 	//width:document.documentElement.clientWidth,
 	height:200
     });
@@ -71,7 +72,7 @@
         aili.state.setAnimation(0,'idel',true);//loop你的动画名字 true 为循环播放
         aili.x = 130;
         aili.y = 250;
-	    aili.scale.x = 0.5;
+	aili.scale.x = 0.5;
         aili.scale.y = 0.5;
         app.stage.addChild(aili);
             
