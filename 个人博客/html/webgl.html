@@ -120,18 +120,22 @@
 	        controlEye.x = -(e.clientY - 100)/3
         })
 
-	    text1.addEventListener('mouseleave',function(e){
-		//console.log('离开眼初始位置x' + relative.x);
-                //console.log('离开眼初始位置y' + relative.y);
-	        controlEye.y = relative.x
+	text1.addEventListener('mouseleave',function(e){
+	    //console.log('离开眼初始位置x' + relative.x);
+            //console.log('离开眼初始位置y' + relative.y);
+	    //controlEye.y = relative.x
+	    //controlEye.x = relative.y
+	    let timer = setInterval( function(){
+		controlEye.y = relative.x
 	        controlEye.x = relative.y
+	    }, 1000);
         })
 	    
 	    Serika.state.setAnimation(0,'Idle_02',true);//loop你的动画名字 true 为循环播放
 	    Serika.x = 990;
 	    Serika.y = 800;
 	    Serika.scale.x = 0.55;
-        Serika.scale.y = 0.55;
+            Serika.scale.y = 0.55;
 	    banner.stage.addChild(Serika);
     }); 
 	    
