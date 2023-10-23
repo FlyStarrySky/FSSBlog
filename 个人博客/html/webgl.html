@@ -42,8 +42,9 @@
     //Create a Pixi Application 创建一个应用  对象
     var app = new PIXI.Application({
         //backgroundColor:0xFFFFFF,   //背景色
-	transparent:true,           //透明
-        antialias:false,             //抗锯齿
+	transparent: true,
+        autoDensity: true,
+        antialias: false,
         width:250,
         height:250
     });
@@ -135,7 +136,7 @@
 			i=1
 			clearInterval(timer)
 		}
-	    }, 50);
+	    }, 40);
         })
 	    Serika.state.setAnimation(0,'Idle_02',true);//loop你的动画名字 true 为循环播放
 	    Serika.x = 990;
