@@ -110,21 +110,20 @@
 	    
         let text1 = document.querySelector("#hander-banner")
 	//过渡    
-	text1.addEventListener('mouseenter',function(e){
-		let j = 1
-	        let timer2 = setInterval( function(){
-	    	controlEye.y = controlEye.y + (-(e.clientX)/3 - controlEye.y)*(j/10)
-                controlEye.x = controlEye.x + (-(e.clientY)/3 -controlEye.x)*(j/10)
-		j++
-		if(j===10){
-			j=1
-			clearInterval(timer2)
-		}
-	    }, 40);
-	})
+	//text1.addEventListener('mouseenter',function(e){
+		//let j = 1
+	        //let timer2 = setInterval( function(){
+	    	//controlEye.y = controlEye.y + (-(e.clientX)/3 - controlEye.y)*(j/10)
+                //controlEye.x = controlEye.x + (-(e.clientY)/3 -controlEye.x)*(j/10)
+		//j++
+		//if(j===10){
+			//j=1
+			//clearInterval(timer2)
+		//}
+	    //}, 40);
+	//})
 
-	function move(){
-		//移动
+	//移动
         	text1.addEventListener('mousemove',function(e){
             //console.log('123');
             //console.log('眼初始位置x' + relative.x);
@@ -137,9 +136,24 @@
 	    controlEye.y = -(e.clientX - 1000)/3
             controlEye.x = -(e.clientY - 100)/3
         })
-	}
+	    
+	//function move(){
+		//移动
+        	//text1.addEventListener('mousemove',function(e){
+            //console.log('123');
+            //console.log('眼初始位置x' + relative.x);
+            //console.log('眼初始位置y' + relative.y);
+	    //console.log('眼当前位置x' + controlEye.x);
+            //console.log('眼当前位置y' + controlEye.y);
+            //basePos.x = e.clientX
+            //basePos.y = e.clientY
+            //console.log(basePos.x);
+	    //controlEye.y = -(e.clientX - 1000)/3
+            //controlEye.x = -(e.clientY - 100)/3
+        //})
+	//}
 
-	  setTimeout(move,3000)  
+	  //setTimeout(move,3000)  
 	
         //过渡
 	text1.addEventListener('mouseleave',function(e){
