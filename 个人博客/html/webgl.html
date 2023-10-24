@@ -122,8 +122,10 @@
 		}
 	    }, 40);
 	})
-	//移动	
-        text1.addEventListener('mousemove',function(e){
+
+	function move(){
+		//移动
+        	text1.addEventListener('mousemove',function(e){
             //console.log('123');
             //console.log('眼初始位置x' + relative.x);
             //console.log('眼初始位置y' + relative.y);
@@ -135,6 +137,10 @@
 	    controlEye.y = -(e.clientX - 1000)/3
             controlEye.x = -(e.clientY - 100)/3
         })
+	}
+
+	  setTimeout(move,3000)  
+	
         //过渡
 	text1.addEventListener('mouseleave',function(e){
 	    //console.log('离开眼初始位置x' + relative.x);
