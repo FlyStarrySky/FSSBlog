@@ -64,7 +64,7 @@
     document.getElementById('hander-banner').appendChild(banner.view);
 
     //加载Json数据
-    let loader1 = PIXI.loader.add('aili','../images/aili.json')
+    let loader1 = PIXI.loader.add('aili','../images/爱莉.json')
     let loader2 = PIXI.loader.add('Serika','../images/Serika_home.json')
 	    
     loader1.load((loader,res)=>{
@@ -73,8 +73,8 @@
         aili.state.setAnimation(0,'idel',true);//loop你的动画名字 true 为循环播放
         aili.x = 130;
         aili.y = 250;
-	aili.scale.x = 0.5;
-        aili.scale.y = 0.5;
+	aili.scale.x = 1;
+        aili.scale.y = 1;
         app.stage.addChild(aili);
             
         // create new empty skin  创建新的空皮肤
