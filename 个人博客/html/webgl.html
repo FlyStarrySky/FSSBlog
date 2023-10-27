@@ -10,18 +10,18 @@
             padding: 0;
         }
 
-	#hander{
+	#header{
 	    position: relative;
 	    display:flex;
 	}
 	
-        #hander-anim{
+        #header-anim{
 	    position: absolute;
 	    top: 0;
 	    left: 0;
 	    z-index : 1;
 	}
-        #hander-banner{
+        #header-banner{
 	    display:flex;
             width: 100vw;
             height: 200px;
@@ -74,9 +74,9 @@
     </style>
 </head>
 <body>
-    <div id = "hander">
-		<div id = "hander-anim"></div>
-		<div id = "hander-banner">
+    <div id = "header">
+		<div id = "header-anim"></div>
+		<div id = "header-banner">
 		    <ul class = "header-nav-left">
 			<li class = "logo"><a href="#">logo</a></li>
 			<li><a href="#">首页</a></li>
@@ -135,7 +135,7 @@
     //将对象显示到窗口
     //document.body.appendChild(app.view);
     document.getElementById('app').appendChild(app.view);
-    document.getElementById('hander-anim').appendChild(banner.view);
+    document.getElementById('header-anim').appendChild(banner.view);
 
     //加载Json数据
     let loader1 = PIXI.loader.add('aili','../images/爱莉.json')
@@ -182,7 +182,7 @@
         relative.x = controlEye.x
         relative.y = controlEye.y
 	    
-        let text1 = document.querySelector("#hander-banner")
+        let text1 = document.querySelector("#header-banner")
 	//过渡    
 	//text1.addEventListener('mouseenter',function(e){
 		//let j = 1
@@ -277,7 +277,7 @@
     })
 
 	    
-    let viewWidth = document.getElementById('hander-anim').clientWidth;
+    let viewWidth = document.getElementById('header-anim').clientWidth;
 	    
     //banner.renderer.view.style.position = "absolute";
     //banner.renderer.view.style.display = "block";
