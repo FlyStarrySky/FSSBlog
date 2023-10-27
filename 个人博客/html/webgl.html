@@ -9,12 +9,24 @@
             margin: 0;
             padding: 0;
         }
+
+	#hander{
+	    position: relative;
+	}
+	
+        #hander-anim{
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    z-index = 1;
+	}
         #hander-banner{
 	    display:flex;
             //width: 100vw;
             height: 200px;
 	    align-items: top;
             justify-content: space-between;
+	    z-index = 2;
         }
 	#app{
 	    width:250px;
@@ -59,23 +71,26 @@
     </style>
 </head>
 <body>
-    <div id = "hander-banner">
-	<ul class = "header-nav-left">
-		<li class = "logo"><a href="#">logo</a></li>
-		<li><a href="#">首页</a></li>
-	</ul>
-	<div class = "input">
-		<input class = "input-box" type="text" name="search">
-		<div class = "input-logo"><a href="#">logo</a></div>
-	</div>
+    <div id = "hander">
+		<div id = "hander-anim"></div>
+		<div id = "hander-banner">
+		    <ul class = "header-nav-left">
+			<li class = "logo"><a href="#">logo</a></li>
+			<li><a href="#">首页</a></li>
+		    </ul>
+		<div class = "input">
+			<input class = "input-box" type="text" name="search">
+			<div class = "input-logo"><a href="#">logo</a></div>
+		</div>
 		
-	<ul class="header-nav-right">
-		<li><a href="#">我的</a></li>
-		<li><a href="#">消息</a></li>
-		<li><a href="#">动态</a></li>
-		<li><a href="#">收藏</a></li>
-		<li><a href="#">历史</a></li>
-	</ul>   
+		<ul class="header-nav-right">
+			<li><a href="#">我的</a></li>
+			<li><a href="#">消息</a></li>
+			<li><a href="#">动态</a></li>
+			<li><a href="#">收藏</a></li>
+			<li><a href="#">历史</a></li>
+		</ul>   
+    	</div>
     </div>
 	
     <div id = "app"></div>
@@ -92,7 +107,9 @@
         PIXI.utils.sayHello(type)
     </script>
 	
-    <script>	    
+    <script>
+    let aili;	
+	    
     //Create a Pixi Application 创建一个应用  对象
     var app = new PIXI.Application({
         //backgroundColor:0xFFFFFF,   //背景色
@@ -115,14 +132,14 @@
     //将对象显示到窗口
     //document.body.appendChild(app.view);
     document.getElementById('app').appendChild(app.view);
-    document.getElementById('hander-banner').appendChild(banner.view);
+    document.getElementById('hander-anim').appendChild(banner.view);
 
     //加载Json数据
     let loader1 = PIXI.loader.add('aili','../images/爱莉.json')
     let loader2 = PIXI.loader.add('Serika','../images/Serika_home.json')
 	    
     loader1.load((loader,res)=>{
-        let aili = new PIXI.spine.Spine(res.aili.spineData),
+        aili = new PIXI.spine.Spine(res.aili.spineData),
         options = [''];
         aili.state.setAnimation(0,'idel',true);//loop你的动画名字 true 为循环播放
         aili.x = 130;
@@ -257,10 +274,10 @@
     })
 
 	    
-    let viewWidth = document.getElementById('hander-banner').clientWidth;
+    let viewWidth = document.getElementById('hander-anim').clientWidth;
 	    
-    banner.renderer.view.style.position = "absolute";
-   // banner.renderer.view.style.display = "block";
+    //banner.renderer.view.style.position = "absolute";
+    //banner.renderer.view.style.display = "block";
     banner.renderer.autoResize = true;
     banner.renderer.resize(viewWidth, 200);
 	    
