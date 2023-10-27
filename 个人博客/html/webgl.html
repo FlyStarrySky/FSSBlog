@@ -234,7 +234,7 @@
     }); 
 
     //拖动事件
-    let t = document.querySelector('app')
+    let t = document.querySelector('#app')
     t.addEventListener('mousedown',function(e){
 	//元素原点
 	let x = e.pageX - t.offsetLeft
@@ -259,7 +259,7 @@
     let viewWidth = document.getElementById('hander-banner').clientWidth;
 	    
     banner.renderer.view.style.position = "absolute";
-    banner.renderer.view.style.display = "block";
+   // banner.renderer.view.style.display = "block";
     banner.renderer.autoResize = true;
     banner.renderer.resize(viewWidth, 200);
 	    
