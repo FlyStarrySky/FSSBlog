@@ -15,6 +15,7 @@
             height: 200px;
 	    align-items: top;
             justify-content: space-between;
+		position: relative;
         }
 	#app{
 	    width:250px;
@@ -25,11 +26,14 @@
 	}
 	.logo{
 		width: 50px;
-		height: 50px;
+		height: 50px；
 	}
 	.input{
 		display: flex;
 		margin-top: 15px;
+		position: absolute;
+bottom: 0;
+z-index: 1;
 	}
 	.input-box{
 		width: 30vw;
@@ -39,15 +43,22 @@
 	.header-nav-left{
             display: flex;
             list-style: none;
+		position: absolute;
+bottom: 0;
+z-index: 1;
         }
 	.header-nav-right{
             display: flex;
             list-style: none;
+		position: absolute;
+bottom: 0;
+z-index: 1;
         }
 	.header a{
             text-decoration: none;
             /* border: 1px solid white; */
             font-size: 20px;
+		color:white;
             border-radius: 8px;
             padding: 10px;
         }
