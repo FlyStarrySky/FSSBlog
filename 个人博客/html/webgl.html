@@ -270,22 +270,21 @@
         	alert("鼠标左键点击了")
 		aili.state.setAnimation(0,'拿起',true); 
 		t.addEventListener('mousemove',moveTo)
-	    function moveTo(el)
-	    {
-		//console.log('移动');
-		let x1 = el.pageX-x+'px'
-		let y1 = el.pageY-y+'px'
-		t.style.left = x1
-		t.style.top = y1
-	    }
+	    	function moveTo(el)
+	    	{
+			//console.log('移动');
+			let x1 = el.pageX-x+'px'
+			let y1 = el.pageY-y+'px'
+			t.style.left = x1
+			t.style.top = y1
+	    	}
 			
 		t.addEventListener('mouseup',()=>{
 			//console.log('停止');
 			aili.state.setAnimation(0,'idel',true); 
 			t.removeEventListener('mousemove',moveTo)
-    		}
-	
-	})
+    		})
+	}
     })
 
 	    
