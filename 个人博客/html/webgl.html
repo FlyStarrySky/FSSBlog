@@ -265,19 +265,21 @@
 	//元素原点
 	let x = e.pageX - t.offsetLeft
 	let y = e.pageY - t.offsetTop
-	document.addEventListener('mousemove',moveTo)
+	aili.state.setAnimation(0,'拿起',true); 
+	t.addEventListener('mousemove',moveTo)
 	    function moveTo(el)
 	    {
-		console.log('移动');
+		//console.log('移动');
 		let x1 = el.pageX-x+'px'
 		let y1 = el.pageY-y+'px'
 		t.style.left = x1
 		t.style.top = y1
-	}
+	    }
 			
-	document.addEventListener('mouseup',()=>{
-		console.log('停止');
-		document.removeEventListener('mousemove',moveTo)
+	t.addEventListener('mouseup',()=>{
+		//console.log('停止');
+		aili.state.setAnimation(0,'idel',true); 
+		t.removeEventListener('mousemove',moveTo)
 	})
     })
 
