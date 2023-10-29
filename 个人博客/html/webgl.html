@@ -267,7 +267,7 @@
 	let y = e.pageY - t.offsetTop
 	    
 	if(event.button==0){
-        	alert("鼠标左键点击了")
+        	//alert("鼠标左键点击了")
 		aili.state.setAnimation(0,'拿起',true); 
 		t.addEventListener('mousemove',moveTo)
 	    	function moveTo(el)
@@ -278,13 +278,12 @@
 			t.style.left = x1
 			t.style.top = y1
 	    	}
-			
-		t.addEventListener('mouseup',()=>{
+	}
+	    t.addEventListener('mouseup',()=>{
 			//console.log('停止');
 			aili.state.setAnimation(0,'idel',true); 
 			t.removeEventListener('mousemove',moveTo)
     		})
-	}
     })
 
 	    
