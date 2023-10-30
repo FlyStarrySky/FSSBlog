@@ -1,1 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 导入CSS -->
+    <link rel="stylesheet" href="../CSS/main.css">
+</head>
+<body>
+    <div id = "header">
+		<div id = "header-anim"></div>
+		<div id = "header-banner">
+		    <ul class = "header-nav-left">
+			<li class = "logo"><a href="#">logo</a></li>
+			<li><a href="#">首页</a></li>
+		    </ul>
+		<div class = "input">
+			<input class = "input-box" type="text" name="search">
+			<div class = "input-logo"><a href="#">logo</a></div>
+		</div>
+		
+		<ul class="header-nav-right">
+			<li><a href="#">我的</a></li>
+			<li><a href="#">消息</a></li>
+			<li><a href="#">动态</a></li>
+			<li><a href="#">收藏</a></li>
+			<li><a href="#">历史</a></li>
+		</ul>   
+    	</div>
+    </div>
+	
+    <div id = "Elysia"></div>
+	
+    <script src="../Js/pixi.js"></script>
+    <script src="../Js/pixi-spine.js"></script>
 
+    <!-- pisi-Text -->
+    <script type="text/javascript">
+        let type = "WebGL"
+        if(!PIXI.utils.isWebGLSupported()){
+            type = "canvas"
+        }
+  
+        PIXI.utils.sayHello(type)
+    </script>
+	
+    <!-- 导入导航条js -->
+    <script src = "../Js/SerikaControl.js"></script>
+    <!-- 导入助手js -->
+	<script src = "../Js/ElysiaControl.js"></script>
+</body>
+</html>
