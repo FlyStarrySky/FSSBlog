@@ -24,7 +24,7 @@ var banner = new PIXI.Application({
 document.getElementById('header-anim').appendChild(banner.view);
 
 //加载Json数据
-let loader2 = PIXI.loader.add('Serika','../images/Serika_home.json')
+//let loader2 = PIXI.loader.add('Serika','../images/Serika_home.json')
 
 //初始化数据
 loader2.load((loader,res)=>{
