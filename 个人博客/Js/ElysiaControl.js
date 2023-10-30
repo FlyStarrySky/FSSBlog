@@ -14,7 +14,7 @@ var Elysia = new PIXI.Application({
 document.getElementById('Elysia').appendChild(Elysia.view);
 
 //加载Json数据
-let loader1 = PIXI.loader.add('aili','../images/爱莉.json')
+//let loader1 = PIXI.loader.add('aili','../images/爱莉.json')
 
 //初始化数据
 loader1.load((loader,res)=>{
