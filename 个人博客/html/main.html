@@ -5,7 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <!-- 导入CSS -->
-    <link rel="stylesheet" href="../CSS/main.css">
+    <!--<link rel="stylesheet" href="../CSS/main.css">-->
+    <style>
+		*{
+    margin: 0;
+    padding: 0;
+}
+#header{
+    position: relative;
+    display:flex;
+}
+#header-anim{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index : 1;
+}
+#header-banner{
+    display:flex;
+    width: 100vw;
+    height: 200px;
+    align-items: top;
+    justify-content: space-between;
+    position: absolute;
+    z-index : 2;
+}
+#Elysia{
+    width:250px;
+    height:250px;
+    position: absolute;
+    top: calc(100vh - 300px);
+    left: calc(100vw - 300px);
+    z-index : 3;
+}
+.logo{
+    width: 50px;
+    height: 50px;
+}
+.input{
+    display: flex;
+    margin-top: 15px;
+}
+.input-box{
+    width: 30vw;
+    height: 30px;
+    margin-left: 18vw;
+    background:rgba(255, 255, 255, 0.5);
+}
+.header-nav-left{
+    display: flex;
+    list-style: none;
+    justify-content: space-evenly;
+    align-items: top;
+}
+.header-nav-right{
+    display: flex;
+    list-style: none;
+    justify-content: space-evenly;
+    align-items: top;
+}
+#header a{
+    text-decoration: none;
+    /* border: 1px solid white; */
+    font-size: 20px;
+    color:white;
+    border-radius: 8px;
+    padding: 10px;
+}
+#header li{
+    margin-right: 20px;
+    margin-top: 15px;
+}   
+	</style>
 </head>
 <body>
     <div id = "header">
@@ -44,7 +115,12 @@
   
         PIXI.utils.sayHello(type)
     </script>
-	
+
+    <script>
+        //加载Json数据
+        let loader1 = PIXI.loader.add('aili','../images/爱莉.json')
+        let loader2 = PIXI.loader.add('Serika','../images/Serika_home.json')
+    </script>
     <!-- 导入导航条js -->
     <script src = "../Js/SerikaControl.js"></script>
     <!-- 导入助手js -->
