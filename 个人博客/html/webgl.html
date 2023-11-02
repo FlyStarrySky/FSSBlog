@@ -253,9 +253,7 @@
 		}
 	    }, 40);
         })
-	    Serika.state.setAnimation(0,'Idle_02',true);//loop你的动画名字 true 为循环播放
-	    skeleton.findSlot("TintStripTINT1").color.setFromString("ffff00")
-  	    skeleton.findSlot("TintStripTINT1").color.set(1, 0, 1, 1) //alternative code
+	    Serika.state.setAnimation(0,'Idle_02',true).alpha=0.5;//loop你的动画名字 true 为循环播放
 	    Serika.x = 1020;
 	    Serika.y = 830;
 	    Serika.scale.x = 0.6;
