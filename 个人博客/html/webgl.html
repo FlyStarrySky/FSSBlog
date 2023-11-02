@@ -254,7 +254,8 @@
 	    }, 40);
         })
 	    Serika.state.setAnimation(0,'Idle_02',true);//loop你的动画名字 true 为循环播放
-	    Serika.state.addAnimation(0, 'Idle_02', true, 0);
+	    tentSpine.skeleton.findSlot("TintStripTINT1").color.setFromString("ffff00")
+  		tentSpine.skeleton.findSlot("TintStripTINT1").color.set(1, 0, 1, 1) //alternative code
 	    Serika.x = 1020;
 	    Serika.y = 830;
 	    Serika.scale.x = 0.6;
