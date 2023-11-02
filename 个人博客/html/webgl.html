@@ -255,8 +255,10 @@
         })
 	    Serika.state.setAnimation(0,'Idle_02',true);//loop你的动画名字 true 为循环播放
 	    //Serika.alpha = 0.5;
-	    const alphaFilter = new PIXI.filters.AlphaFilter(alpha:0.4)
+	    //const alphaFilter = new PIXI.filters.AlphaFilter(alpha:0.4)
+	    const alphaFilter = new PIXI.filters.AlphaFilter();
 	    Serika.filters = [alphaFilter]
+	    alphaFilter.alpha = 0.4;
 	    Serika.x = 1020;
 	    Serika.y = 830;
 	    Serika.scale.x = 0.6;
