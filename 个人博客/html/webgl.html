@@ -134,7 +134,7 @@
 	antialias:true,             //抗锯齿
 	transparent: true,
 	//width:document.documentElement.clientWidth,
-	height:200
+	//height:200
     });
         
     //将对象显示到窗口
@@ -258,7 +258,7 @@
 	    //const alphaFilter = new PIXI.filters.AlphaFilter(alpha:0.4)
 	    const alphaFilter = new PIXI.filters.AlphaFilter();
 	    Serika.filters = [alphaFilter]
-	    alphaFilter.alpha = 0.4;
+	    alphaFilter.alpha = 0.3;
 	    Serika.x = 1020;
 	    Serika.y = 830;
 	    Serika.scale.x = 0.6;
@@ -299,7 +299,7 @@
     //banner.renderer.view.style.position = "absolute";
     //banner.renderer.view.style.display = "block";
     banner.renderer.autoResize = true;
-    banner.renderer.resize(viewWidth, 200);
+    banner.renderer.resize(viewWidth, viewHeight);
 	    
     //窗体变换事件
     window.addEventListener('resize', function(){
@@ -308,7 +308,7 @@
     	let windowWidth = document.documentElement.clientWidth || document.body.clientWidth;
     	//console.log(windowWidth);
 	//banner.width = windowWidth;
-	banner.renderer.resize(windowWidth, 200);
+	banner.renderer.resize(windowWidth, viewHeight);
     });
     </script>
 	
