@@ -306,17 +306,19 @@
 			    //点击
 			    aili.state.setAnimation(0,'表情1',false)
 			    //延迟4s调用idle动画
-			    
+			    setTimeout(returnIdel,4000)
 		}
 		    else{
 			    //console.log('停止');
-			aili.state.setAnimation(0,'idel',true); 
+			returnIdle();
 			t.removeEventListener('mousemove',moveTo)
 		    }
 			
     		})
     })
-
+function returnIdle(){
+	aili.state.setAnimation(0,'idel',true); 
+}
 	    
      let viewWidth = document.getElementById('header').clientWidth;
 	    
