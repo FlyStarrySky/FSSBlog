@@ -124,7 +124,9 @@
     </script>
 	
     <script>
-    let aili;	
+    let aili;
+    let downtime
+    let uptime
 	    
     //Create a Pixi Application 创建一个应用  对象
     var app = new PIXI.Application({
@@ -284,16 +286,9 @@
 	    
 	if(event.button==0){
         	//alert("鼠标左键点击了")
-		const downtime = Date.now()
-		t.addEventListener('mouseup',function(e){
-			const uptime = Date.now()
-			if(uptime-downtime＜600)
-			{
-				aili.state.setAnimation(0,'表情1',false)
-				//调用返回函数
-			}
-		})
-		aili.state.setAnimation(0,'拿起',true); 
+		downtime = Date.now()
+
+		//aili.state.setAnimation(0,'拿起',true); 
 		t.addEventListener('mousemove',moveTo)
 	    	function moveTo(el)
 	    	{
@@ -305,6 +300,17 @@
 	    	}
 	}
 	    t.addEventListener('mouseup',()=>{
+		    uptime = Date.now()
+		    if(uptime-downtime<500)
+		    {
+			    //点击
+			    aili.state.setAnimation(0,'表情1',false)
+			    //延迟4s调用idle动画
+			    
+		}
+		    else{
+			    
+		    }
 			//console.log('停止');
 			aili.state.setAnimation(0,'idel',true); 
 			t.removeEventListener('mousemove',moveTo)
