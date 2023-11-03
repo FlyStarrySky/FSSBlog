@@ -293,13 +293,14 @@
 	    	function moveTo(el)
 	    	{
 			//console.log('移动');
+			aili.state.setAnimation(0,'拿起',true); 
 			let x1 = el.pageX-x+'px'
 			let y1 = el.pageY-y+'px'
 			t.style.left = x1
 			t.style.top = y1
 	    	}
 	}
-	    t.addEventListener('mouseup',()=>{
+	t.addEventListener('mouseup',()=>{
 		    uptime = Date.now()
 		    if(uptime-downtime<500)
 		    {
@@ -316,7 +317,7 @@
 			
     		})
     })
-function returnIdle(){
+function returnIdle{
 	aili.state.setAnimation(0,'idel',true); 
 }
 	    
