@@ -135,6 +135,7 @@
 	transparent: true,
 	//width:document.documentElement.clientWidth,
 	//height:200
+	resizeTo:window
     });
         
     //将对象显示到窗口
@@ -299,7 +300,7 @@
     //banner.renderer.view.style.position = "absolute";
     //banner.renderer.view.style.display = "block";
     banner.renderer.autoResize = true;
-    banner.renderer.resize(viewWidth, viewHeight);
+    banner.renderer.resize(viewWidth, window.innerHeight);
 	    
     //窗体变换事件
     window.addEventListener('resize', function(){
@@ -308,7 +309,7 @@
     	let windowWidth = document.documentElement.clientWidth || document.body.clientWidth;
     	//console.log(windowWidth);
 	//banner.width = windowWidth;
-	banner.renderer.resize(windowWidth, viewHeight);
+	banner.renderer.resize(windowWidth, window.innerHeight);
     });
     </script>
 	
