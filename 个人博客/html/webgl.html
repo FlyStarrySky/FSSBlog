@@ -284,8 +284,15 @@
 	    
 	if(event.button==0){
         	//alert("鼠标左键点击了")
-		const downtime = Date.now
-		if()
+		const downtime = Date.now()
+		t.addEventListener('mouseup',function(e){
+			const uptime = Date.now()
+			if(uptime-downtime＜600)
+			{
+				aili.state.setAnimation(0,'表情1',false)
+				//调用返回函数
+			}
+		})
 		aili.state.setAnimation(0,'拿起',true); 
 		t.addEventListener('mousemove',moveTo)
 	    	function moveTo(el)
