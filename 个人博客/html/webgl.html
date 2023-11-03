@@ -13,6 +13,8 @@
 	#header{
 	    position: relative;
 	    display:flex;
+		width:100vw;
+		height:100vh;
 	}
 	
         #header-anim{
@@ -190,7 +192,7 @@
         relative.x = controlEye.x
         relative.y = controlEye.y
 	    
-        let text1 = document.querySelector("#header-anim")
+        let text1 = document.querySelector("#header")
 	//过渡    
 	//text1.addEventListener('mouseenter',function(e){
 		//let j = 1
@@ -295,22 +297,22 @@
     })
 
 	    
-    let viewWidth = document.getElementById('header').clientWidth;
+    // let viewWidth = document.getElementById('header').clientWidth;
 	    
     //banner.renderer.view.style.position = "absolute";
     //banner.renderer.view.style.display = "block";
-    banner.renderer.autoResize = true;
-    banner.renderer.resize(viewWidth, window.innerHeight);
+    // banner.renderer.autoResize = true;
+    // banner.renderer.resize(viewWidth, window.innerHeight);
 	    
-    //窗体变换事件
-    window.addEventListener('resize', function(){
-	//console.log('1');
-    	//输出当前窗口的宽
-    	let windowWidth = document.documentElement.clientWidth || document.body.clientWidth;
-    	//console.log(windowWidth);
-	//banner.width = windowWidth;
-	banner.renderer.resize(windowWidth, window.innerHeight);
-    });
+ //    //窗体变换事件
+ //    window.addEventListener('resize', function(){
+	// //console.log('1');
+ //    	//输出当前窗口的宽
+ //    	let windowWidth = document.documentElement.clientWidth || document.body.clientWidth;
+ //    	//console.log(windowWidth);
+	// //banner.width = windowWidth;
+	// banner.renderer.resize(windowWidth, window.innerHeight);
+ //    });
     </script>
 	
 </body>
