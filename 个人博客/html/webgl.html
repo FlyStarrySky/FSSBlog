@@ -25,6 +25,8 @@
 	    position: absolute;
 	    top: 0;
 	    left: 0;
+		width:100vw;
+		height:100vh;
 	    z-index : 1;
 	}
         #header-banner{
@@ -301,12 +303,12 @@
     })
 
 	    
-    // let viewWidth = document.getElementById('header').clientWidth;
+     let viewWidth = document.getElementById('header').clientWidth;
 	    
     //banner.renderer.view.style.position = "absolute";
     //banner.renderer.view.style.display = "block";
-    // banner.renderer.autoResize = true;
-    // banner.renderer.resize(viewWidth, window.innerHeight);
+     banner.renderer.autoResize = true;
+     banner.renderer.resize(viewWidth, window.innerHeight);
 	    
  //    //窗体变换事件
  //    window.addEventListener('resize', function(){
