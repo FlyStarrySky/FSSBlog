@@ -24,8 +24,8 @@
         #header-anim{
 	    position: absolute;
 	    top: 0;
-	    left: 50%-600px;
-		width:1200px;
+	    left: 10%;
+		width:1000px;
 		height:100vh;
 	    z-index : 1;
 	}
@@ -147,7 +147,7 @@
 	//backgroundColor:0xFFFFFF,   //背景色
 	antialias:true,             //抗锯齿
 	transparent: true,
-	//width:document.documentElement.clientWidth,
+	width:1000,
 	//height:200
 	resizeTo:window
     });
@@ -330,12 +330,12 @@ function returnIdle(){
 	aili.state.setAnimation(0,'idel',true); 
 }
 	    
-     let viewWidth = document.getElementById('header-anim').clientWidth;
+     //let viewWidth = document.getElementById('header-anim').clientWidth;
 	    
     //banner.renderer.view.style.position = "absolute";
     //banner.renderer.view.style.display = "block";
-     banner.renderer.autoResize = true;
-     banner.renderer.resize(viewWidth, window.innerHeight);
+    //banner.renderer.autoResize = true;
+    //banner.renderer.resize(viewWidth, window.innerHeight);
 	    
  //    //窗体变换事件
  //    window.addEventListener('resize', function(){
