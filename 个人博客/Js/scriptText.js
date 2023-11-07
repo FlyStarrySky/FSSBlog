@@ -111,9 +111,10 @@ window.onload = () => {
     let decoratitem = ["发饰1","墨镜","花发饰","遮阳帽","右猫耳","左猫耳-1","左猫耳-2","摩托头盔","礼服帽子","女仆发饰"]
     
     menu_second_clothes.addEventListener('click', function(e){
-        if(e.target.dataset.id == "1")
+        if(e.target.dataset.id == [0-9])
         {
-            console.log('点击了工作服');
+            //console.log('点击了工作服');
+            changeClothes(e.target.dataset.id)
             menu_second_clothes.style.height = '0'
             menu_second_clothes.classList.remove('is-active')
             isleave = 0
@@ -123,10 +124,19 @@ window.onload = () => {
     menu_second_decoration.addEventListener('click', function(e){
         if(e.target.dataset.id == "1")
         {
-            console.log('点击了发饰1');
+            //console.log('点击了发饰1');
             menu_second_decoration.style.height = '0'
             menu_second_decoration.classList.remove('is-active')
             isleave = 0
         }
     })
+    function changeClothes(id)
+    {
+        const newSkin = new PIXI.spine.core.Skin("Myskin")
+        newSkin.addSkin(aili.spineData.findSkin("Base-带头盔"))
+        newSkin.addSkin(aili.spineData.findSkin(`皮肤/${clothesitem[id]}`))
+        newSkin.addSkin(aili.spineData.findSkin("头饰/发饰1"))
+        aili.skeleton.setSkin(newSkin)
+        aili.skeleton.setSlotsToSetupPose();
+    }
 }
