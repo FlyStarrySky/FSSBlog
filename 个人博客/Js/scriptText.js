@@ -149,6 +149,8 @@ window.onload = () => {
 			
 			//Reset slots to remove not used attachments  
 			aili.skeleton.setSlotsToSetupPose();
+	    console.log(`更新了${clothesitem[id]}`);
+	    console.log('更新完成');
         // const newSkin = new PIXI.spine.core.Skin("Myskin")
         // newSkin.addSkin(aili.spineData.findSkin("Base-带头盔"))
         // newSkin.addSkin(aili.spineData.findSkin(`皮肤/${clothesitem[id]}`))
