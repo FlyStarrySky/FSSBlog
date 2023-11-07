@@ -1,437 +1,353 @@
 <DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="../Js/iconfont.js"></script>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-        }
-
-        body{
-	    background-color: rgb(197, 197, 197);
-        }
-	.icon {
-            width: 1em;
-            height: 1em;
-            vertical-align: -0.15em;
-            fill: currentColor;
-            overflow: hidden;
-        }
-	#header{
-	    position: relative;
-	    display:flex;
-		width:100vw;
-		height:100vh;
-	}
+	<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
 	
-        #header-anim{
-	    position: absolute;
-	    top: 0;
-	    left: calc(50vw - 500px);;
-		width:1000px;
-		height:100vh;
-	    z-index : 1;
-	}
-        #header-banner{
-	    display:flex;
-            width: 100vw;
-            height: 100px;
-	    background-color: rgba(255, 255, 255, 0.6);
-	    align-items: top;
-            justify-content: space-between;
-	    position: absolute;
-	    z-index : 2;
-        }
-	#app{
-	    width:250px;
-	    height:250px;
-	    position: absolute;
-            top: calc(100vh - 300px);
-            left: calc(100vw - 300px);
+		body{
+	/* 	    width:100vw; */
+	/* 	    height:100vh; */
+		}
+		#header{
+			position: relative;
+			display:flex;
+			width:100vw;
+			height:100vh;
+		}
 		
-	    z-index : 3;
-	}
-	    #app:hover{
-	    cursor:pointer;
-	}
-	.logo{
-		width: 50px;
-		height: 50px;
-	}
-	.input{
-		display: flex;
-		margin-top: 15px;
-	}
-	.input-box{
-		width: 30vw;
-		height: 30px;
-		margin-left: 18vw;
-		background:rgba(255, 255, 255, 0.5);
-	}
-	.header-nav-left{
-            display: flex;
-            list-style: none;
-	    justify-content: space-evenly;
-            align-items: top;
-        }
-	.header-nav-right{
-            display: flex;
-            list-style: none;
-     	    justify-content: space-evenly;
-            align-items: top;
-        }
-	#header a{
-            text-decoration: none;
-            /* border: 1px solid white; */
-            font-size: 20px;
-	    color:black;
-            border-radius: 8px;
-            padding: 10px;
-        }
-        #header li{
-            margin-right: 20px;
-            margin-top: 15px;
-        }   
-	    .menu {
-            position: absolute;
-            width: 152px;
-            padding: 4px;
-            box-shadow: 0 1px 4px rgba(28, 28, 32, .04), 0 8px 24px rgba(28, 28, 32, .12);
-            border-radius: 10px;
-            background: white;
-            opacity: 0;
-            visibility: hidden;
-            overflow: hidden;
-            transition: opacity .2s ease, height .3s ease, visibility .3s ease;
-        }   
-        .menu ul{
-            list-style: none;
-        }
-        .menu-item1,.menu-item2,.menu-item3,.menu-item4 {
-            line-height: 22px;
-            color: #25262b;
-            font-size: 14px;
-            border-radius: 5px;
-            padding: 8px;
-            cursor: pointer;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            justify-content: space-between;
-            transition: background .3s ease;
-        }
-        .menu-item:hover {
-            background: #f5f5f6;
-        }
-        .menu-item svg {
-            margin-right: 8px;
-        }
-        .menu-second li{
-            line-height: 22px;
-            color: #25262b;
-            font-size: 14px;
-            border-radius: 5px;
-            padding: 8px;
-            cursor: pointer;
-            /* display: flex; */
-            /* justify-content: flex-start; */
-            align-items: center;
-            justify-content: space-between;
-            transition: background .3s ease;
-        }
-        .menu-second span{
-            text-align: left;
-            padding-left: 20px;
-            cursor: pointer;
-            transition: background .3s ease;
-        }
-        .menu-second li:hover{
-            background: #f5f5f6;
-        }
-        .menu-second-clothes,.menu-second-decoration{
-            position: absolute;
-            width: 152px;
-            padding: 4px;
-            box-shadow: 0 1px 4px rgba(28, 28, 32, .04), 0 8px 24px rgba(28, 28, 32, .12);
-            border-radius: 10px;
-            background: white;
-            opacity: 0;
-            visibility: hidden;
-            overflow: hidden;
-            transition: opacity .2s ease, height .3s ease, visibility .3s ease;
-        }
-        .is-active {
-            opacity: 1;
-            visibility: visible;
-        }
-    </style>
-</head>
-<body>
-    <div id = "header">
-		<div id = "header-anim"></div>
-		<div id = "header-banner">
-		    <ul class = "header-nav-left">
-			<li class = "logo"><a href="#">logo</a></li>
-			<li><a href="#">首页</a></li>
-		    </ul>
-		<div class = "input">
-			<input class = "input-box" type="text" name="search">
-			<div class = "input-logo"><a href="#">logo</a></div>
+			#header-anim{
+			position: absolute;
+			top: 0;
+			left: calc(50vw - 500px);;
+			width:1000px;
+			height:100vh;
+			z-index : 1;
+		}
+			#header-banner{
+			display:flex;
+				width: 100vw;
+				height: 100px;
+			background-color: rgba(159, 159, 159, 0.477);
+			align-items: top;
+				justify-content: space-between;
+			position: absolute;
+			z-index : 2;
+			}
+		#app{
+			width:250px;
+			height:250px;
+			position: absolute;
+				top: calc(100vh - 300px);
+				left: calc(100vw - 300px);
+			
+			z-index : 3;
+		}
+			#app:hover{
+			cursor:pointer;
+		}
+		.logo{
+			width: 50px;
+			height: 50px;
+		}
+		.input{
+			display: flex;
+			margin-top: 15px;
+		}
+		.input-box{
+			width: 30vw;
+			height: 30px;
+			margin-left: 18vw;
+			background:rgba(255, 255, 255, 0.5);
+		}
+		.header-nav-left{
+				display: flex;
+				list-style: none;
+			justify-content: space-evenly;
+				align-items: top;
+			}
+		.header-nav-right{
+				display: flex;
+				list-style: none;
+				 justify-content: space-evenly;
+				align-items: top;
+			}
+		#header a{
+				text-decoration: none;
+				/* border: 1px solid white; */
+				font-size: 20px;
+			color:black;
+				border-radius: 8px;
+				padding: 10px;
+			}
+			#header li{
+				margin-right: 20px;
+				margin-top: 15px;
+			}   
+		</style>
+	</head>
+	<body>
+		<div id = "header">
+			<div id = "header-anim"></div>
+			<div id = "header-banner">
+				<ul class = "header-nav-left">
+				<li class = "logo"><a href="#">logo</a></li>
+				<li><a href="#">首页</a></li>
+				</ul>
+			<div class = "input">
+				<input class = "input-box" type="text" name="search">
+				<div class = "input-logo"><a href="#">logo</a></div>
+			</div>
+			
+			<ul class="header-nav-right">
+				<li><a href="#">我的</a></li>
+				<li><a href="#">消息</a></li>
+				<li><a href="#">动态</a></li>
+				<li><a href="#">收藏</a></li>
+				<li><a href="#">历史</a></li>
+			</ul>   
+			</div>
 		</div>
 		
-		<ul class="header-nav-right">
-			<li><a href="#">我的</a></li>
-			<li><a href="#">消息</a></li>
-			<li><a href="#">动态</a></li>
-			<li><a href="#">收藏</a></li>
-			<li><a href="#">历史</a></li>
-		</ul>   
-    	</div>
-    </div>
+		<div id = "app"></div>
+		
+		<script src="../Js/pixi.js"></script>
+		<script src="../Js/pixi-spine.js"></script>
 	
-    <div id = "app" oncontextmenu="openMenu(event)></div>
-	
-    <script src="../Js/pixi.js"></script>
-    <script src="../Js/pixi-spine.js"></script>
-
-    <script type="text/javascript">
-        let type = "WebGL"
-        if(!PIXI.utils.isWebGLSupported()){
-            type = "canvas"
-        }
-  
-        PIXI.utils.sayHello(type)
-    </script>
-	
-    <script>
-    let aili;
-    let downtime
-    let uptime
-	    
-    //Create a Pixi Application 创建一个应用  对象
-    var app = new PIXI.Application({
-        //backgroundColor:0xFFFFFF,   //背景色
-	transparent: true,
-        autoDensity: true,
-        antialias: false,
-        width:250,
-        height:250
-    });
-	    
-    //Create a Pixi Application 创建一个应用  对象
-    var banner = new PIXI.Application({
-	//backgroundColor:0xFFFFFF,   //背景色
-	antialias:true,             //抗锯齿
-	transparent: true,
-	width:1000,
-	//height:200
-	//resizeTo:window
-    });
-        
-    //将对象显示到窗口
-    //document.body.appendChild(app.view);
-    document.getElementById('app').appendChild(app.view);
-    document.getElementById('header-anim').appendChild(banner.view);
-
-    //加载Json数据
-    let loader1 = PIXI.loader.add('aili','../images/爱莉.json')
-    let loader2 = PIXI.loader.add('Serika','../images/Serika_home.json')
-	    
-    loader1.load((loader,res)=>{
-        aili = new PIXI.spine.Spine(res.aili.spineData),
-        options = [''];
-        aili.state.setAnimation(0,'idel',true);//loop你的动画名字 true 为循环播放
-        aili.x = 130;
-        aili.y = 250;
-	aili.scale.x = 0.4;
-        aili.scale.y = 0.4;
-	    
-	aili.stateData.setMix('idel', '拿起', 0.2);
-	aili.stateData.setMix('拿起','idel' , 0.2);
-	aili.stateData.setMix('idel', '表情1', 0.2);
-	aili.stateData.setMix('表情1','idel' , 0.2);
-	    
-        app.stage.addChild(aili);
-            
-        // create new empty skin  创建新的空皮肤
-        const newSkin = new PIXI.spine.core.Skin("Myskin");
-            
-        // add base skin  加入基础皮肤
-        newSkin.addSkin(aili.spineData.findSkin("Base—戴头盔"));
-            
-        // add parital skins over base     加入其余皮肤
-        newSkin.addSkin(aili.spineData.findSkin("皮肤/女仆服"));
-        newSkin.addSkin(aili.spineData.findSkin("头饰/发饰1"));
-
-        //设置皮肤
-        aili.skeleton.setSkin(newSkin); 
-        
-        //Reset slots to remove not used attachments  
-        aili.skeleton.setSlotsToSetupPose();
-    }); 
-    
-    loader2.load((loader,res)=>{
-	let Serika = new PIXI.spine.Spine(res.Serika.spineData),
-	options = [''];
-	let skeleton = Serika.skeleton;
-	//获取相关骨骼
-        let controlEye = skeleton.findBone('Touch_Eye')
-        let controlHead = skeleton.findBone('Head')
-
-        //眼位置
-        let relative = {x: 0, y: 0}   
-        //眼骨骼初始位置
-        relative.x = controlEye.x
-        relative.y = controlEye.y
-	    
-        let text1 = document.querySelector("#header")
-	//过渡    
-	//text1.addEventListener('mouseenter',function(e){
-		//let j = 1
-	        //let timer2 = setInterval( function(){
-	    	//controlEye.y = controlEye.y + (-(e.clientX)/3 - controlEye.y)*(j/10)
-                //controlEye.x = controlEye.x + (-(e.clientY)/3 -controlEye.x)*(j/10)
-		//j++
-		//if(j===10){
-			//j=1
-			//clearInterval(timer2)
-		//}
-	    //}, 40);
-	//})
-
-	//移动
-        	text1.addEventListener('mousemove',function(e){
-            //console.log('123');
-            //console.log('眼初始位置x' + relative.x);
-            //console.log('眼初始位置y' + relative.y);
-	    //console.log('眼当前位置x' + controlEye.x);
-            //console.log('眼当前位置y' + controlEye.y);
-            //basePos.x = e.clientX
-            //basePos.y = e.clientY
-            //console.log(basePos.x);
-	    controlEye.y = -(e.clientX - 1000)/3
-            controlEye.x = -(e.clientY - 100)/3
-        })
-	    
-	//function move(){
-		//移动
-        	//text1.addEventListener('mousemove',function(e){
-            //console.log('123');
-            //console.log('眼初始位置x' + relative.x);
-            //console.log('眼初始位置y' + relative.y);
-	    //console.log('眼当前位置x' + controlEye.x);
-            //console.log('眼当前位置y' + controlEye.y);
-            //basePos.x = e.clientX
-            //basePos.y = e.clientY
-            //console.log(basePos.x);
-	    //controlEye.y = -(e.clientX - 1000)/3
-            //controlEye.x = -(e.clientY - 100)/3
-        //})
-	//}
-
-	  //setTimeout(move,3000)  
-	
-        //过渡
-	text1.addEventListener('mouseleave',function(e){
-	    //console.log('离开眼初始位置x' + relative.x);
-            //console.log('离开眼初始位置y' + relative.y);
-	    //controlEye.x = relative.x
-	    //controlEye.y = relative.y
-	    let i = 1
-	    let timer = setInterval( function(){
-	    	controlEye.y = controlEye.y - (controlEye.y - relative.y)*(i/10)
-                controlEye.x = controlEye.x - (controlEye.x - relative.x)*(i/10)
-		i++
-		if(i===10){
-			i=1
-			clearInterval(timer)
-		}
-	    }, 40);
-        })
-	    Serika.state.setAnimation(0,'Idle_02',true);//loop你的动画名字 true 为循环播放
-	    //Serika.alpha = 0.5;
-	    //const alphaFilter = new PIXI.filters.AlphaFilter(alpha:0.4)
-	    const alphaFilter = new PIXI.filters.AlphaFilter();
-	    Serika.filters = [alphaFilter]
-	    alphaFilter.alpha = 0.3;
-	    Serika.x = 600;
-	    Serika.y = 800;
-	    Serika.scale.x = 0.43;
-            Serika.scale.y = 0.43;
-	    banner.stage.addChild(Serika);
-    }); 
-
-    //拖动事件
-    let t = document.querySelector('#app')
-    t.addEventListener('mousedown',function(e){
-	//元素原点
-	let x = e.pageX - t.offsetLeft
-	let y = e.pageY - t.offsetTop
-	    
-	if(event.button==0){
-        	//alert("鼠标左键点击了")
-		downtime = Date.now()
-
-		//aili.state.setAnimation(0,'拿起',true); 
-		t.addEventListener('mousemove',moveTo)
-	    	function moveTo(el)
-	    	{
-			//console.log('移动');
-			aili.state.setAnimation(0,'拿起',true); 
-			let x1 = el.pageX-x+'px'
-			let y1 = el.pageY-y+'px'
-			t.style.left = x1
-			t.style.top = y1
-	    	}
-	}
-	t.addEventListener('mouseup',()=>{
-		    uptime = Date.now()
-		    if(uptime-downtime<500)
-		    {
-			    //点击
-			    aili.state.setAnimation(0,'表情1',true)
-			    t.removeEventListener('mousemove',moveTo)
-			    //延迟4s调用idle动画
-			    setTimeout(returnIdle,4000)
-		}
-		    else{
-			    //console.log('停止');
-			returnIdle();
-			t.removeEventListener('mousemove',moveTo)
-		    }
+		<script type="text/javascript">
+			let type = "WebGL"
+			if(!PIXI.utils.isWebGLSupported()){
+				type = "canvas"
+			}
+	  
+			PIXI.utils.sayHello(type)
+		</script>
+		
+		<script>
+		let aili;
+		let downtime
+		let uptime
 			
-    		})
-    })
-function returnIdle(){
-	aili.state.setAnimation(0,'idel',true); 
-}
-	    
-     let viewWidth = document.getElementById('header-anim').clientWidth;
-	    
-    //banner.renderer.view.style.position = "absolute";
-    //banner.renderer.view.style.display = "block";
-    //banner.renderer.autoResize = true;
-    banner.renderer.resize(viewWidth, window.innerHeight);
-	    
- //    //窗体变换事件
- //    window.addEventListener('resize', function(){
-	// //console.log('1');
- //    	//输出当前窗口的宽
- //    	let windowWidth = document.documentElement.clientWidth || document.body.clientWidth;
- //    	//console.log(windowWidth);
-	// //banner.width = windowWidth;
-	// banner.renderer.resize(windowWidth, window.innerHeight);
- //    });
-    </script>
-
-
-<!-- 换装模块 -->
+		//Create a Pixi Application 创建一个应用  对象
+		var app = new PIXI.Application({
+			//backgroundColor:0xFFFFFF,   //背景色
+		transparent: true,
+			autoDensity: true,
+			antialias: false,
+			width:250,
+			height:250
+		});
+			
+		//Create a Pixi Application 创建一个应用  对象
+		var banner = new PIXI.Application({
+		//backgroundColor:0xFFFFFF,   //背景色
+		antialias:true,             //抗锯齿
+		transparent: true,
+		width:1000,
+		//height:200
+		//resizeTo:window
+		});
+			
+		//将对象显示到窗口
+		//document.body.appendChild(app.view);
+		document.getElementById('app').appendChild(app.view);
+		document.getElementById('header-anim').appendChild(banner.view);
 	
-    <script src="../Js/scriptText.js"></script>
-	    
-</body>
-</html>
+		//加载Json数据
+		let loader1 = PIXI.loader.add('aili','../images/爱莉.json')
+		let loader2 = PIXI.loader.add('Serika','../images/Serika_home.json')
+			
+		loader1.load((loader,res)=>{
+			aili = new PIXI.spine.Spine(res.aili.spineData),
+			options = [''];
+			aili.state.setAnimation(0,'idel',true);//loop你的动画名字 true 为循环播放
+			aili.x = 130;
+			aili.y = 250;
+		aili.scale.x = 0.4;
+			aili.scale.y = 0.4;
+			
+		aili.stateData.setMix('idel', '拿起', 0.2);
+		aili.stateData.setMix('拿起','idel' , 0.2);
+		aili.stateData.setMix('idel', '表情1', 0.2);
+		aili.stateData.setMix('表情1','idel' , 0.2);
+			
+			app.stage.addChild(aili);
+				
+			// create new empty skin  创建新的空皮肤
+			const newSkin = new PIXI.spine.core.Skin("Myskin");
+				
+			// add base skin  加入基础皮肤
+			newSkin.addSkin(aili.spineData.findSkin("Base—戴头盔"));
+				
+			// add parital skins over base     加入其余皮肤
+			newSkin.addSkin(aili.spineData.findSkin("皮肤/女仆服"));
+			newSkin.addSkin(aili.spineData.findSkin("头饰/发饰1"));
+	
+			//设置皮肤
+			aili.skeleton.setSkin(newSkin); 
+			
+			//Reset slots to remove not used attachments  
+			aili.skeleton.setSlotsToSetupPose();
+		}); 
+		
+		loader2.load((loader,res)=>{
+		let Serika = new PIXI.spine.Spine(res.Serika.spineData),
+		options = [''];
+		let skeleton = Serika.skeleton;
+		//获取相关骨骼
+			let controlEye = skeleton.findBone('Touch_Eye')
+			let controlHead = skeleton.findBone('Head')
+	
+			//眼位置
+			let relative = {x: 0, y: 0}   
+			//眼骨骼初始位置
+			relative.x = controlEye.x
+			relative.y = controlEye.y
+			
+			let text1 = document.querySelector("#header")
+		//过渡    
+		//text1.addEventListener('mouseenter',function(e){
+			//let j = 1
+				//let timer2 = setInterval( function(){
+				//controlEye.y = controlEye.y + (-(e.clientX)/3 - controlEye.y)*(j/10)
+					//controlEye.x = controlEye.x + (-(e.clientY)/3 -controlEye.x)*(j/10)
+			//j++
+			//if(j===10){
+				//j=1
+				//clearInterval(timer2)
+			//}
+			//}, 40);
+		//})
+	
+		//移动
+				text1.addEventListener('mousemove',function(e){
+				//console.log('123');
+				//console.log('眼初始位置x' + relative.x);
+				//console.log('眼初始位置y' + relative.y);
+			//console.log('眼当前位置x' + controlEye.x);
+				//console.log('眼当前位置y' + controlEye.y);
+				//basePos.x = e.clientX
+				//basePos.y = e.clientY
+				//console.log(basePos.x);
+			controlEye.y = -(e.clientX - 1000)/3
+				controlEye.x = -(e.clientY - 100)/3
+			})
+			
+		//function move(){
+			//移动
+				//text1.addEventListener('mousemove',function(e){
+				//console.log('123');
+				//console.log('眼初始位置x' + relative.x);
+				//console.log('眼初始位置y' + relative.y);
+			//console.log('眼当前位置x' + controlEye.x);
+				//console.log('眼当前位置y' + controlEye.y);
+				//basePos.x = e.clientX
+				//basePos.y = e.clientY
+				//console.log(basePos.x);
+			//controlEye.y = -(e.clientX - 1000)/3
+				//controlEye.x = -(e.clientY - 100)/3
+			//})
+		//}
+	
+		  //setTimeout(move,3000)  
+		
+			//过渡
+		text1.addEventListener('mouseleave',function(e){
+			//console.log('离开眼初始位置x' + relative.x);
+				//console.log('离开眼初始位置y' + relative.y);
+			//controlEye.x = relative.x
+			//controlEye.y = relative.y
+			let i = 1
+			let timer = setInterval( function(){
+				controlEye.y = controlEye.y - (controlEye.y - relative.y)*(i/10)
+					controlEye.x = controlEye.x - (controlEye.x - relative.x)*(i/10)
+			i++
+			if(i===10){
+				i=1
+				clearInterval(timer)
+			}
+			}, 40);
+			})
+			Serika.state.setAnimation(0,'Idle_02',true);//loop你的动画名字 true 为循环播放
+			//Serika.alpha = 0.5;
+			//const alphaFilter = new PIXI.filters.AlphaFilter(alpha:0.4)
+			const alphaFilter = new PIXI.filters.AlphaFilter();
+			Serika.filters = [alphaFilter]
+			alphaFilter.alpha = 0.3;
+			Serika.x = 600;
+			Serika.y = 800;
+			Serika.scale.x = 0.43;
+				Serika.scale.y = 0.43;
+			banner.stage.addChild(Serika);
+		}); 
+	
+		//拖动事件
+		let t = document.querySelector('#app')
+		t.addEventListener('mousedown',function(e){
+		//元素原点
+		let x = e.pageX - t.offsetLeft
+		let y = e.pageY - t.offsetTop
+			
+		if(event.button==0){
+				//alert("鼠标左键点击了")
+			downtime = Date.now()
+	
+			//aili.state.setAnimation(0,'拿起',true); 
+			t.addEventListener('mousemove',moveTo)
+				function moveTo(el)
+				{
+				//console.log('移动');
+				aili.state.setAnimation(0,'拿起',true); 
+				let x1 = el.pageX-x+'px'
+				let y1 = el.pageY-y+'px'
+				t.style.left = x1
+				t.style.top = y1
+				}
+		}
+		t.addEventListener('mouseup',()=>{
+				uptime = Date.now()
+				if(uptime-downtime<500)
+				{
+					//点击
+					aili.state.setAnimation(0,'表情1',true)
+					t.removeEventListener('mousemove',moveTo)
+					//延迟4s调用idle动画
+					setTimeout(returnIdle,4000)
+			}
+				else{
+					//console.log('停止');
+				returnIdle();
+				t.removeEventListener('mousemove',moveTo)
+				}
+				
+				})
+		})
+	function returnIdle(){
+		aili.state.setAnimation(0,'idel',true); 
+	}
+			
+		 let viewWidth = document.getElementById('header-anim').clientWidth;
+			
+		//banner.renderer.view.style.position = "absolute";
+		//banner.renderer.view.style.display = "block";
+		//banner.renderer.autoResize = true;
+		banner.renderer.resize(viewWidth, window.innerHeight);
+			
+	 //    //窗体变换事件
+	 //    window.addEventListener('resize', function(){
+		// //console.log('1');
+	 //    	//输出当前窗口的宽
+	 //    	let windowWidth = document.documentElement.clientWidth || document.body.clientWidth;
+	 //    	//console.log(windowWidth);
+		// //banner.width = windowWidth;
+		// banner.renderer.resize(windowWidth, window.innerHeight);
+	 //    });
+		</script>
+		
+	</body>
+	</html>
