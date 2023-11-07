@@ -135,11 +135,25 @@ window.onload = () => {
     })
     function changeClothes(id)
     {
-        const newSkin = new PIXI.spine.core.Skin("Myskin")
-        newSkin.addSkin(aili.spineData.findSkin("Base-带头盔"))
-        newSkin.addSkin(aili.spineData.findSkin(`皮肤/${clothesitem[id]}`))
-        newSkin.addSkin(aili.spineData.findSkin("头饰/发饰1"))
-        aili.skeleton.setSkin(newSkin)
-        aili.skeleton.setSlotsToSetupPose();
+            const newSkin = new PIXI.spine.core.Skin("Myskin");
+				
+			// add base skin  加入基础皮肤
+			newSkin.addSkin(aili.spineData.findSkin("Base—戴头盔"));
+				
+			// add parital skins over base     加入其余皮肤
+			newSkin.addSkin(aili.spineData.findSkin(`皮肤/${clothesitem[id]}`));
+			newSkin.addSkin(aili.spineData.findSkin("头饰/发饰1"));
+	
+			//设置皮肤
+			aili.skeleton.setSkin(newSkin); 
+			
+			//Reset slots to remove not used attachments  
+			aili.skeleton.setSlotsToSetupPose();
+        // const newSkin = new PIXI.spine.core.Skin("Myskin")
+        // newSkin.addSkin(aili.spineData.findSkin("Base-带头盔"))
+        // newSkin.addSkin(aili.spineData.findSkin(`皮肤/${clothesitem[id]}`))
+        // newSkin.addSkin(aili.spineData.findSkin("头饰/发饰1"))
+        // aili.skeleton.setSkin(newSkin)
+        // aili.skeleton.setSlotsToSetupPose();
     }
 }
