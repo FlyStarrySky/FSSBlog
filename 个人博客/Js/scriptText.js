@@ -109,9 +109,12 @@ window.onload = () => {
 
     let clothesitem = ["工作服","女仆服","学生服","摩托服","泳装1","泳装2","礼服","旗袍"]
     let decoratitem = ["发饰1","墨镜","花发饰","遮阳帽","右猫耳","左猫耳-1","左猫耳-2","摩托头盔","礼服帽子","女仆发饰"]
+
+    //衣服的正则表达式
+    const reg = /^[0-7]$/
     
     menu_second_clothes.addEventListener('click', function(e){
-        if(e.target.dataset.id == [0-9])
+        if(reg.test(e.target.dataset.id))
         {
             //console.log('点击了工作服');
             changeClothes(e.target.dataset.id)
