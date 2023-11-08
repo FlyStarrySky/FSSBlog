@@ -642,9 +642,12 @@
 				returnIdle();
 				t.removeEventListener('mousemove',moveTo)
 				}
-				
 				})
 		})
+//手机触摸
+			t.addEventLinster('touchstart',function(){
+				aili.state.setAnimation(0,'表情1',true)
+			})
 	function returnIdle(){
 		aili.state.setAnimation(0,'idel',true); 
 	}
