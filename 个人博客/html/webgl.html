@@ -646,8 +646,7 @@
 		})
 //手机触摸
 			//手机拖动事件
-		let t2 = document.querySelector('#app')
-		t2.addEventListener('touchdown',function(e){
+		t.addEventListener('touchdown',function(e){
 		//元素原点
 		let x = e.pageX - t2.offsetLeft
 		let y = e.pageY - t2.offsetTop
@@ -657,18 +656,18 @@
 			downtime = Date.now()
 	
 			//aili.state.setAnimation(0,'拿起',true); 
-			t2.addEventListener('touchmove',moveTo)
+			t.addEventListener('touchmove',moveTo)
 				function moveTo(el)
 				{
 				//console.log('移动');
 				aili.state.setAnimation(0,'拿起',true); 
-				let x1 = el.pageX-x+'px'
-				let y1 = el.pageY-y+'px'
-				t2.style.left = x1
-				t2.style.top = y1
+				let x2 = el.pageX-x+'px'
+				let y2 = el.pageY-y+'px'
+				t.style.left = x1
+				t.style.top = y1
 				}
 		}
-		t2.addEventListener('touchend',()=>{
+		t.addEventListener('touchend',()=>{
 				uptime = Date.now()
 				if(uptime-downtime<500)
 				{
@@ -681,7 +680,7 @@
 				else{
 					//console.log('停止');
 				returnIdle();
-				t2.removeEventListener('touchmove',moveTo)
+				t.removeEventListener('touchmove',moveTo)
 				}
 				})
 		})
