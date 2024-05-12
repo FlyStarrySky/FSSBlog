@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 出错gif图 */
+        .nollDataImg{
+            width: 100px;
+            display: block;
+            margin: 0 auto;
+        }
+        /* 错误提示 */
+        .errorNotice{
+            text-align: center;
+            font-size: 25px;
+        }
+        /* 游戏界面 */
+        #Game{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="Game"></div>
+    <div class="errorNotice">
+        <img class="nollDataImg" src="../images/nollData.gif" alt="出错了">
+        Error出错了，错误码：xxx
+    </div>
+
+    <!-- 导入js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.1.3/pixi.min.js"></script>
+    <script src="../Js/pixi-spine.js"></script>
+
+    <!-- 检验pixi是否引入成功 -->
+    <script type="text/javascript">
+        let type = "WebGL"
+        if(!PIXI.utils.isWebGLSupported()){
+            type = "canvas"
+        }
+  
+        PIXI.utils.sayHello(type)
+    </script>
+
+    <script>
+        // 游戏区域
+        let GameWidth = 1000
+        let GameHeight = 500
+
+        // 游戏角色
+        let aili
+
+        // 是否开启游戏状态
+        let played = false
+
+        // 是否结束游戏状态
+        let IsGameOver = false
+
+        // 文字对象
+        let GameText
+
+        // 等待开始时间
+        let time = 3
+
+        // 游戏开始倒计时计时器
+        let timer = ''
+
+        // 当前缺口大小
+        let door = 300
+
+        // 缺口起始位置
+        let start = 100
+
+        // 分数
+        let score = 0
+
+        // 创建Pixi对象
+        let app = new PIXI.Application({
+            backgroundColor: 0xf1f2f3,   //背景色
+            // transparent: true,    //背景透明
+			width: GameWidth,
+			height: GameHeight,
+        })
+
+        // 添加舞台
+        document.getElementById('Game').appendChild(app.view)
+        // 加载json文件
+        let loader = PIXI.loader.add('aili','../images/爱莉.json')
+
+        // 创建开始游戏文字
+        // 文字添加到舞台
+        GameText = new PIXI.Text('开始游戏')
+        // 锚点偏移
+        GameText.anchor.set(0.5)
+        // 居中
+        GameText.x = app.screen.width / 2
+        GameText.y = app.screen.height / 2
+        // 开启事件
+        GameText.interactive = true
+        // 绑定事件
+        GameText.on("click",()=>{
+            console.log("开始");
+            played = true
+        })
+        app.stage.addChild(GameText)
+
+
+        // 画上半障碍物
+        let graphicsUp = new PIXI.Graphics()
+        // 填充色
+        graphicsUp.beginFill(0xc1c2c3)
+        // x,y位置,元素宽，高
+        graphicsUp.drawRect(0, 0, 100, 100)
+        // 锚点居中
+        graphicsUp.transform.pivot.set(50, 50)
+        // 因为锚点居中了，这里要偏移半宽，加上游戏区域，使其在右上方
+        graphicsUp.x = app.screen.width + 50
+        graphicsUp.y = 50
+        app.stage.addChild(graphicsUp)
+
+
+        // 画下半障碍物
+        let graphicsDown = new PIXI.Graphics()
+        graphicsDown.beginFill(0xc1c2c3)
+        graphicsDown.drawRect(0, 0, 100, 100)
+        graphicsDown.transform.pivot.set(50, 50)
+        // 移动到右边底部
+        graphicsDown.x = app.screen.width + 50
+        graphicsDown.y = app.screen.height - 50
+        app.stage.addChild(graphicsDown)
+
+        // 加载角色
+        loader.load((loader,res)=>{
+            aili = new PIXI.spine.Spine(res.aili.spineData),
+            aili.state.setAnimation(0,'fly',true);
+            aili.state.timeScale = 1.4
+            aili.x = app.screen.width / 2 - 100;
+            aili.y = app.screen.height / 2 ;
+            // console.log('anchor' in aili); false
+            // console.log(aili);
+            aili.transform.pivot.set(-12.5, -90)
+            aili.scale.set(-0.2, 0.2)
+            
+            // 舞台添加角色
+            app.stage.addChild(aili);
+                
+            // create new empty skin  创建新的空皮肤
+            const newSkin = new PIXI.spine.core.Skin("Myskin");
+                
+            // add base skin  加入基础皮肤
+            newSkin.addSkin(aili.spineData.findSkin("Base—戴头盔"));
+                
+            // add parital skins over base     加入其余皮肤
+            newSkin.addSkin(aili.spineData.findSkin("皮肤/工作服"));
+            newSkin.addSkin(aili.spineData.findSkin("头饰/发饰1"));
+    
+            //设置皮肤
+            aili.skeleton.setSkin(newSkin); 
+            
+            //Reset slots to remove not used attachments  
+            // 刷新渲染皮肤
+            aili.skeleton.setSlotsToSetupPose();
+        }); 
+
+        // 当前角色状态
+        let keys = {
+            // 跳跃上升
+            up: false,
+            // 向下
+            down: true
+        };
+
+        // 窗体添加键盘事件
+        // 按下空格起飞
+        window.addEventListener("keydown",(e) => {
+            if (e.code === 'Space'){
+                // console.log("爬升");
+                keys.up = true
+                keys.down = false
+            }
+        })
+        // 松手空格下降
+        window.addEventListener("keyup",(e) => {
+            if (e.code === 'Space'){
+                // console.log("下降");
+                keys.up = false
+                keys.down = true
+            }
+        })
+
+        // 游戏结束
+        function gameOver(){
+            IsGameOver = true
+            // 隐藏舞台角色
+            aili.visible = false
+            graphicsUp.visible = false
+            graphicsDown.visible = false
+
+            GameText.text = "游戏结束，得分" + score + ", 点击刷新"
+            GameText.y = app.screen.height / 2
+            GameText.interactive = true
+            GameText.on("click",()=>{
+                // 刷新界面，重新开始游戏
+                location.reload()
+            })
+        }
+
+        // 随机生成缺口
+        function create(){
+
+            // 可通过缺口范围 
+            let max = 500
+            let min = 200
+
+            // 随机缺口大小
+            door = Math.floor(Math.random()*(max-min+1)+min);
+
+            max -= door
+            min = 0
+
+            // 随机起始
+            start = Math.floor(Math.random()*(max-min+1)+min);
+
+            // 画上半障碍物
+            graphicsUp = new PIXI.Graphics()
+            graphicsUp.beginFill(0xc1c2c3)
+            // x,y,宽，高
+            graphicsUp.drawRect(0, 0, 100, start)
+            graphicsUp.x = app.screen.width - 50
+            graphicsUp.y = start / 2
+            graphicsUp.transform.pivot.set(50, start / 2)
+            app.stage.addChild(graphicsUp)
+
+            // 画下半障碍物
+            graphicsDown = new PIXI.Graphics()
+            graphicsDown.beginFill(0xc1c2c3)
+            // x,y,宽，高
+            graphicsDown.drawRect(0, 0, 100, 500 - start - door)
+            graphicsDown.x = app.screen.width -50
+            graphicsDown.y = app.screen.height - (500 - start - door) / 2
+            graphicsDown.transform.pivot.set(50, (500 - start - door) / 2)
+            app.stage.addChild(graphicsDown)
+
+            console.log("开始"+start);
+            console.log("大小"+door);
+            console.log("底部"+ (500 - start - door));
+        }
+        
+        
+        // update函数
+        app.ticker.add(() =>{
+            // 游戏结束退出
+            if (IsGameOver) return
+
+            // 倒计时
+            if (played && timer == '') {
+                GameText.text = time
+                timer = setInterval(() => {
+                    GameText.text = time -1
+                    time -= 1
+                    if (time == 0){
+                        GameText.text = "GO!" 
+                        return
+                    }
+                }, 1000);
+                
+            }
+            
+            // 开始游戏
+            if (time <= -1) {
+                clearInterval(timer)
+                // app.stage.removeChild(text2)
+                GameText.y = 20
+                GameText.x = app.screen.width / 2
+                GameText.text = score
+                // 障碍移动速度加快
+                graphicsUp.x -= score / 2 > 1 ? score / 2 + 2 : 2
+
+                if (graphicsUp.x < - 100) {
+                    score += 1
+                    // 生成新缺口
+                    create()
+                }
+
+                // 障碍物移动
+                graphicsDown.x -= score / 2 > 1 ? score / 2 + 2 : 2
+
+                // 判断是否碰撞  两个物体的中心原点的x距离小于两个物体半宽和
+                if ((Math.abs(aili.x - graphicsUp.x) < 12.5 + 50 && Math.abs(aili.y - graphicsUp.y) < start / 2 + 70)||(Math.abs(aili.x - graphicsDown.x) < 12.5 + 50 && Math.abs(aili.y - graphicsDown.y ) < (500 - start - door) / 2 + 20 )){
+                    console.log("asdsad");
+                    // 碰撞
+                    gameOver()
+                }
+
+                // 按下空格
+                if (keys.down){
+                    aili.y += score / 2 > 1 ? score / 2 + 2 : 2
+                }
+
+                // 松开空格
+                if (keys.up){
+                    aili.y -= score / 2 > 1 ? score / 2 + 2 : 2
+                }
+
+                // 封顶
+                if (aili.y > app.screen.height -10){
+                    aili.y = app.screen.height -10
+                }
+
+                // 封底
+                if (aili.y < 70){
+                    aili.y = 70
+                }
+            }
+        });
+    </script>
+</body>
+</html>
