@@ -222,6 +222,10 @@
             // 随机起始
             start = Math.floor(Math.random()*(max-min+1)+min);
 
+	    // 清空图形列表,也可以destory()，防止内存泄漏
+	    graphicsUp.clear()
+	    graphicsDown.clear()
+		
             // 画上半障碍物
             graphicsUp = new PIXI.Graphics()
             graphicsUp.beginFill(0xc1c2c3)
@@ -248,7 +252,7 @@
         }
         
         
-        // update函数
+        // update函数，这里没考虑不同设备的帧数不同，导致的动画速度不同
         app.ticker.add(() =>{
             // 游戏结束退出
             if (IsGameOver) return
